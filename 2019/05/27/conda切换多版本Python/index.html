@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="conda切换多版本Python
+参考：https://www.jianshu.com/p/d2e15200ee9b
+
+conda使用检测安装的conda版本1conda --version
+C...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/05/27</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="conda切换多版本Python"><a href="#conda切换多版本Python" class="headerlink" title="conda切换多版本Python"></a>conda切换多版本Python</h1><blockquote>
+<p>参考：<a href="https://www.jianshu.com/p/d2e15200ee9b" target="_blank" rel="noopener">https://www.jianshu.com/p/d2e15200ee9b</a></p>
+</blockquote>
+<h2 id="conda使用"><a href="#conda使用" class="headerlink" title="conda使用"></a>conda使用</h2><h3 id="检测安装的conda版本"><a href="#检测安装的conda版本" class="headerlink" title="检测安装的conda版本"></a>检测安装的conda版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+<p>Conda会返回你安装Anaconda软件的版本。</p>
+<h3 id="升级当前版本conda"><a href="#升级当前版本conda" class="headerlink" title="升级当前版本conda"></a>升级当前版本conda</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update conda</span><br></pre></td></tr></table></figure>
+<p>更新conda到最新版本之后，利用conda进行环境管理</p>
+<h3 id="创建新环境"><a href="#创建新环境" class="headerlink" title="创建新环境"></a>创建新环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n snake2 python=2</span><br></pre></td></tr></table></figure>
+<p>这里创建了名为snake2的虚拟环境，python版本为二。如果需要三版本的，可以改为<code>python=3</code></p>
+<h3 id="切换到新环境"><a href="#切换到新环境" class="headerlink" title="切换到新环境"></a>切换到新环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate snake2</span><br></pre></td></tr></table></figure>
+<p>此时检测一下环境内的python版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python --version                                  </span><br><span class="line"></span><br><span class="line">Python 2.7.16 :: Anaconda, Inc.</span><br></pre></td></tr></table></figure>
+<p>可以发现已经切换成python2了。</p>
+<h3 id="切换回原来的环境"><a href="#切换回原来的环境" class="headerlink" title="切换回原来的环境"></a>切换回原来的环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<p>此时检测一下环境内的python版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python --version </span><br><span class="line"></span><br><span class="line">Python 3.6.8 :: Anaconda custom (64-bit)</span><br></pre></td></tr></table></figure>
+<h3 id="列出所有的环境："><a href="#列出所有的环境：" class="headerlink" title="列出所有的环境："></a>列出所有的环境：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190527160942.png" alt></p>
+<p>可以看到<code>snake2</code>后有个<code>*</code>号，代表当前激活环境。</p>
+<h3 id="检查环境内的包："><a href="#检查环境内的包：" class="headerlink" title="检查环境内的包："></a>检查环境内的包：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190527160737.png" alt></p>
+<p>这里由于snake2是新安装的环境，所以可以看出新安装的包并不多。</p>
+<h3 id="查找一个包是否能安装的版本："><a href="#查找一个包是否能安装的版本：" class="headerlink" title="查找一个包是否能安装的版本："></a>查找一个包是否能安装的版本：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda search beautifulsoup4</span><br></pre></td></tr></table></figure>
+<h3 id="安装包，必须告知安装环境的名字："><a href="#安装包，必须告知安装环境的名字：" class="headerlink" title="安装包，必须告知安装环境的名字："></a>安装包，必须告知安装环境的名字：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --name snake2 pandas</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190527165903.png" alt></p>
+<p>这里安装pandas包到我的python2虚拟环境sanke2中。</p>
+<p>检查一下在snake环境中是否安装成功。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190527170053.png" alt></p>
+<h3 id="移除安装的包，必须告知移除包的环境："><a href="#移除安装的包，必须告知移除包的环境：" class="headerlink" title="移除安装的包，必须告知移除包的环境："></a>移除安装的包，必须告知移除包的环境：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n base beautifulsoup4</span><br></pre></td></tr></table></figure>
+<h3 id="从Anaconda-org安装一个包"><a href="#从Anaconda-org安装一个包" class="headerlink" title="从Anaconda.org安装一个包"></a>从Anaconda.org安装一个包</h3><p>如果一个包不能使用conda安装，我们接下来将在Anaconda.org网站查找。Anaconda.org向公开和私有包仓库提供包管理服务。Anaconda.org是一个连续分析产品。<br> <strong>提示：</strong>你在Anaconda.org下载东西的时候不强制要求注册。<br> <strong>为了从Anaconda.org下载到当前的环境中，我们需要通过指定Anaconda.org为一个特定通道，通过输入这个包的完整路径来实现。</strong><br> 在浏览器中，去 <a href="http://anaconda.org" target="_blank" rel="noopener">http://anaconda.org</a> 网站。我们查找一个叫“bottleneck”的包，所以在左上角的叫“Search Anaconda Cloud”搜索框中输入“bottleneck”并点击search按钮。<br> Anaconda.org上会有超过一打的bottleneck包的版本可用，但是我们想要那个被下载最频繁的版本。所以你可以通过下载量来排序，通过点击Download栏。<br> 点击包的名字来选择最常被下载的包。它会链接到Anaconda.org详情页显示下载的具体命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --channel https：//conda .anaconda.ort/pandas bottleneck</span><br></pre></td></tr></table></figure>
+<p>### </p>
+<h3 id="通过pip命令来安装包"><a href="#通过pip命令来安装包" class="headerlink" title="通过pip命令来安装包"></a>通过pip命令来安装包</h3><p>对于那些无法通过conda安装或者从Anaconda.org获得的包，我们通常可以用pip（“pip install packages”的简称）来安装包。<br> <strong>提示：</strong> pip只是一个包管理器，所以它不能为你管理环境。pip甚至不能升级python，因为它不像conda一样把python当做包来处理。但是它可以安装一些conda安装不了的包，和vice versa（此处不会翻译）。<strong>pip和conda都集成在Anaconda或miniconda里边。</strong></p>
+<p>我们激活我们想放置程序的环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate snake2</span><br></pre></td></tr></table></figure>
+<p>然后通过pip安装一个叫“See”的程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install see</span><br></pre></td></tr></table></figure>
+<h3 id="移除一个虚拟环境："><a href="#移除一个虚拟环境：" class="headerlink" title="移除一个虚拟环境："></a>移除一个虚拟环境：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n python3 --all</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/05/27/centos7精简版安装后必须做的事情/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2019/05/25/快速体验手机抓包/" class="next-post btn btn-default" title=''>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            </span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#conda切换多版本Python"><span class="toc-text">conda切换多版本Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#conda使用"><span class="toc-text">conda使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检测安装的conda版本"><span class="toc-text">检测安装的conda版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#升级当前版本conda"><span class="toc-text">升级当前版本conda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新环境"><span class="toc-text">创建新环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换到新环境"><span class="toc-text">切换到新环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换回原来的环境"><span class="toc-text">切换回原来的环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出所有的环境："><span class="toc-text">列出所有的环境：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查环境内的包："><span class="toc-text">检查环境内的包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找一个包是否能安装的版本："><span class="toc-text">查找一个包是否能安装的版本：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装包，必须告知安装环境的名字："><span class="toc-text">安装包，必须告知安装环境的名字：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除安装的包，必须告知移除包的环境："><span class="toc-text">移除安装的包，必须告知移除包的环境：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从Anaconda-org安装一个包"><span class="toc-text">从Anaconda.org安装一个包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过pip命令来安装包"><span class="toc-text">通过pip命令来安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移除一个虚拟环境："><span class="toc-text">移除一个虚拟环境：</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

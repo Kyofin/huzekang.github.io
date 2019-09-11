@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="线上cpu占用过高的线程分析生产环境的一个java服务占用cpu200%多。该服务里面跑了很多线程，于是想找到是谁引起的。
+1. 先查出java应用的pid1jps
+
+2. 首先dump出该进程...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/03/23</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="线上cpu占用过高的线程分析"><a href="#线上cpu占用过高的线程分析" class="headerlink" title="线上cpu占用过高的线程分析"></a>线上cpu占用过高的线程分析</h1><p>生产环境的一个java服务占用cpu200%多。该服务里面跑了很多线程，于是想找到是谁引起的。</p>
+<h3 id="1-先查出java应用的pid"><a href="#1-先查出java应用的pid" class="headerlink" title="1. 先查出java应用的pid"></a>1. 先查出java应用的pid</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/peter1040080742/picbed/master/20190326095938.png" alt></p>
+<h3 id="2-首先dump出该进程的所有线程及状态。"><a href="#2-首先dump出该进程的所有线程及状态。" class="headerlink" title="2. 首先dump出该进程的所有线程及状态。"></a>2. 首先dump出该进程的所有线程及状态。</h3><h5 id="使用命令-jstack-PID-命令打印出CPU占用过高进程的线程栈"><a href="#使用命令-jstack-PID-命令打印出CPU占用过高进程的线程栈" class="headerlink" title="使用命令 jstack PID 命令打印出CPU占用过高进程的线程栈"></a>使用命令 jstack PID 命令打印出CPU占用过高进程的线程栈</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstack -l 10 &gt; 10.stack</span><br></pre></td></tr></table></figure>
+<p>将进程id为10的线程栈输出到了文件</p>
+<h3 id="3-使用top命令找到耗cpu的线程"><a href="#3-使用top命令找到耗cpu的线程" class="headerlink" title="3. 使用top命令找到耗cpu的线程"></a>3. 使用top命令找到耗cpu的线程</h3><p>  使用<code>top -H -p PID</code> 命令查看对应进程是哪个线程占用CPU过高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[goocar@LoginSVR ~]$ top -H -p 5683</span><br><span class="line"></span><br><span class="line"> PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                </span><br><span class="line"> 76 ecar      16   0 2442m 1.3g 288m R 38.3  8.4 208:06.62 java                                                                   </span><br><span class="line"> 72 ecar      16   0 2442m 1.3g 288m S 37.3  8.4 209:08.91 java                                                                   </span><br><span class="line"> 71 ecar      16   0 2442m 1.3g 288m R 37.3  8.4 213:14.04 java                                                                   </span><br><span class="line"> 73 ecar      16   0 2442m 1.3g 288m S 35.6  8.4 211:39.23 java                                                                   </span><br><span class="line"> 17 ecar      16   0 2442m 1.3g 288m S  0.0  8.4   0:00.00 java                                                                   </span><br><span class="line"> 20 ecar      18   0 2442m 1.3g 288m S  0.0  8.4   0:01.62 java                                                                   </span><br><span class="line"> 22 ecar      16   0 2442m 1.3g 288m S  0.0  8.4  21:13.33 java</span><br></pre></td></tr></table></figure>
+<p>可以看到是76这个线程占用的cpu比较高。</p>
+<h3 id="4-检查文件中线程信息"><a href="#4-检查文件中线程信息" class="headerlink" title="4. 检查文件中线程信息"></a>4. 检查文件中线程信息</h3><p>将线程的pid 转成16进制，比如76 = 0x4c</p>
+<p>在dump出来的10.stack文件中找0x4c，就知道是哪个线程占用cpu这么高了</p>
+<ul>
+<li><h4 id="用sed命令"><a href="#用sed命令" class="headerlink" title="用sed命令"></a>用sed命令</h4></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n '474,494p' 10.stack</span><br></pre></td></tr></table></figure>
+<p>这样你就可以只查看文件的第474行到第494行。</p>
+<ul>
+<li><h4 id="用awk处理"><a href="#用awk处理" class="headerlink" title="用awk处理"></a>用awk处理</h4></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk 'NR &gt;474 &amp;&amp; NR&lt;494 &#123;print&#125;'  10.stack</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/peter1040080742/picbed/master/20190323173805.png" alt></p>
+<p>可以看出该线程是在查oracle的数据</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/03/24/es性能优化/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2019/03/20/vim操作速记/" class="next-post btn btn-default" title=''>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            </span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线上cpu占用过高的线程分析"><span class="toc-text">线上cpu占用过高的线程分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-先查出java应用的pid"><span class="toc-text">1. 先查出java应用的pid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-首先dump出该进程的所有线程及状态。"><span class="toc-text">2. 首先dump出该进程的所有线程及状态。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用命令-jstack-PID-命令打印出CPU占用过高进程的线程栈"><span class="toc-text">使用命令 jstack PID 命令打印出CPU占用过高进程的线程栈</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-使用top命令找到耗cpu的线程"><span class="toc-text">3. 使用top命令找到耗cpu的线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-检查文件中线程信息"><span class="toc-text">4. 检查文件中线程信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用sed命令"><span class="toc-text">用sed命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用awk处理"><span class="toc-text">用awk处理</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

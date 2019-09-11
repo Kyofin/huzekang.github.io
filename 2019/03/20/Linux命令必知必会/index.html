@@ -1,0 +1,774 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="Linux命令必知必会[TOC]
+top命令监控系统的运行状态，并且可以按照cpu、内存、执行时间进行排序。
+
+第一行中，03:30:22是当前时间，up 39 min是系统运行的运行了多长时间...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/03/20</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Linux命令必知必会"><a href="#Linux命令必知必会" class="headerlink" title="Linux命令必知必会"></a>Linux命令必知必会</h1><p>[TOC]</p>
+<h2 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h2><p>监控系统的运行状态，并且可以按照cpu、内存、执行时间进行排序。</p>
+<p><img src="https://ssl.aicode.cc/2016-10-31-top.png" alt="top"></p>
+<p>第一行中，<code>03:30:22</code>是当前时间，<code>up 39 min</code>是系统运行的运行了多长时间，<code>1 user</code>指出了当前有几个用户登录到系统，<code>load average</code>指的是系统负载，这后面的三个值分别是1分钟，5分钟，15分钟的系统负载平均值。</p>
+<blockquote>
+<p>如果仅仅需要第一行中的信息，可以使用<code>uptime</code>命令。</p>
+</blockquote>
+<p>第二行中，<code>Task</code>指出了当前系统有多少个进程，以及各种状态的进程统计信息。</p>
+<a id="more"></a>
+<p>第三行是<code>%Cpu(s)</code>，代表了CPU占用比例，其中：</p>
+<ul>
+<li><strong>us</strong> 用户模式(<em>user</em> mode)</li>
+<li><strong>sy</strong> 系统模式(<em>system</em> mode)</li>
+<li><strong>ni</strong> 优先值(low priority user mode(<em>nice</em>))</li>
+<li><strong>id</strong> 空闲CPU百分比(<em>idle</em> task)</li>
+<li><strong>wa</strong> 等待输入输出的CPU事件百分比(I/O <em>waiting</em>)</li>
+<li><strong>hi</strong> servicing IRQs</li>
+<li><strong>si</strong> servicing soft IRQs</li>
+<li><strong>st</strong> <em>steal</em> (time given to other DomU instances)</li>
+</ul>
+<blockquote>
+<p><strong>ni</strong>是优先值(nice value)，也就是任务的优先值。优先值为负数，则说明任务有更高的优先级，正数值说明任务有更低的优先级，该值为0意味着进程的优先级没有调整。</p>
+</blockquote>
+<p>最后两行为内存信息，前者<code>Mem</code>为物理内存占用信息，后者<code>Swap</code>为交换分区占用信息。</p>
+<blockquote>
+<p>使用<code>-M</code>参数可以更加友好的显示内存占用信息。默认是以kb展示的，看起来比较费劲，使用<code>-M</code>之后会根据数值大小，以G/M为单位展示。</p>
+</blockquote>
+<p>最下面是进程的信息区域：</p>
+<ul>
+<li><strong>PID</strong> 进程的PID</li>
+<li><strong>USER</strong> 用户名，任务属主</li>
+<li><strong>PR</strong> 任务的优先级</li>
+<li><strong>NI</strong> 优先值</li>
+<li><strong>VIRT</strong> 虚拟映像（kb），任务当前使用的虚拟内存数量</li>
+<li><strong>RES</strong> 常驻物理内存占用量，RES=CODE+DATA</li>
+<li><strong>SHR</strong> 共享内存大小（kb）</li>
+<li><strong>S</strong> 进程状态（D-不可中断的睡眠，R-运行，S-睡眠，T-停止，Z-僵尸进程）</li>
+<li><strong>%CPU</strong> CPU使用量</li>
+<li><strong>%MEM</strong> 内存使用量</li>
+<li><strong>TIME+</strong> CPU时间，百分之一</li>
+<li><strong>COMMAND</strong> 程序名称</li>
+</ul>
+<blockquote>
+<p>参考<a href="http://blog.csdn.net/sanshiqiduer/article/details/1933625" target="_blank" rel="noopener">linux top命令详解</a></p>
+</blockquote>
+<h2 id="pgrep-pkill-命令"><a href="#pgrep-pkill-命令" class="headerlink" title="pgrep/pkill 命令"></a>pgrep/pkill 命令</h2><p>根据名称或者其它属性查询（发送信号）进程信息。</p>
+<p><code>pgrep</code>命令根据提供的条件查询进程的pid，查询条件是and方式的，对于同一个选项，使用『,』分隔可以按照or方式查询。</p>
+<pre><code>pgrep -u root sshd   # 查询进程名为sshd，并且属主是root的进程
+pgrep -u root,daemon # 查询属主是root或者daemon的进程
+</code></pre><p><code>pkill</code> 使用与<code>pgrep</code>类似，不过它不是用来查询进程pid，而是给进程发送信号，默认会发送 <strong>SIGTERM</strong>信号。</p>
+<p>例如:</p>
+<pre><code>$ pgrep -u root named # 查找named进程的pid
+$ pkill -HUP syslogd  # 告诉syslogd重新读取配置文件
+</code></pre><blockquote>
+<p>要查看有哪些信号可用，可以使用<code>kill -l</code>列出所有的信号以及其数值。</p>
+</blockquote>
+<h2 id="except命令"><a href="#except命令" class="headerlink" title="except命令"></a>except命令</h2><ul>
+<li><strong>send</strong> 发送一个字符串给进程。</li>
+<li><strong>expect</strong> 等待来自进程返回的字符串。</li>
+<li><strong>spawn</strong> 开始一个命令。</li>
+</ul>
+<h3 id="实现控制台SSH直接登陆Linux服务器"><a href="#实现控制台SSH直接登陆Linux服务器" class="headerlink" title="实现控制台SSH直接登陆Linux服务器"></a>实现控制台SSH直接登陆Linux服务器</h3><pre><code>#!/usr/bin/expect
+
+set timeout 20
+
+set ip &quot;IP地址&quot;
+set user &quot;用户名&quot;
+set password &quot;密码&quot;
+
+spawn ssh &quot;$user\@$ip&quot;
+
+expect &quot;$user@$ip&apos;s password:&quot;
+send &quot;$password\r&quot;
+
+interact
+</code></pre><blockquote>
+<p>参考 <a href="http://www.thegeekstuff.com/2010/10/expect-examples/" target="_blank" rel="noopener">6 Expect Script Examples to Expect the Unexpected (With Hello World)
+</a></p>
+</blockquote>
+<h2 id="pstack命令"><a href="#pstack命令" class="headerlink" title="pstack命令"></a>pstack命令</h2><p><code>pstack</code>是一个shell脚本，用于打印正在运行的进程的栈跟踪信息，它实际上是<code>gstack</code>的一个链接。</p>
+<p>该命令只需要提供一个参数，进程的pid即可。</p>
+<pre><code>$ sudo pstack $(pgrep -uroot php-fpm)
+[sudo] password for guanyy:
+#0  0x000000380d8e86f3 in __epoll_wait_nocancel () from /lib64/libc.so.6
+#1  0x00000000007ec4a4 in fpm_event_epoll_wait ()
+#2  0x00000000007e1517 in fpm_event_loop ()
+#3  0x00000000007dc887 in fpm_run ()
+#4  0x00000000007e3bd8 in main ()
+</code></pre><blockquote>
+<p><code>pstack</code>是gdb的一部分，如果系统没有pstack命令，使用yum搜索安装<code>gdb</code>即可。</p>
+</blockquote>
+<h2 id="strace命令"><a href="#strace命令" class="headerlink" title="strace命令"></a>strace命令</h2><p><code>strace</code>命令用于跟踪系统调用和信号。主要用于诊断，调试程序，使用该命令能够打印出进程执行的系统调用信息。</p>
+<blockquote>
+<p>在 Mac 下使用<code>dtruss</code>命令代替</p>
+</blockquote>
+<h3 id="找出应用程序启动时读取的配置文件"><a href="#找出应用程序启动时读取的配置文件" class="headerlink" title="找出应用程序启动时读取的配置文件"></a>找出应用程序启动时读取的配置文件</h3><pre><code>$ strace php 2&gt;&amp;1 | grep php.ini
+open(&quot;/usr/local/bin/php.ini&quot;, O_RDONLY) = -1 ENOENT (No such file or directory)
+open(&quot;/usr/local/lib/php.ini&quot;, O_RDONLY) = 4
+lstat64(&quot;/usr/local/lib/php.ini&quot;, {st_mode=S_IFLNK|0777, st_size=27, ...}) = 0
+readlink(&quot;/usr/local/lib/php.ini&quot;, &quot;/usr/local/Zend/etc/php.ini&quot;, 4096) = 27
+lstat64(&quot;/usr/local/Zend/etc/php.ini&quot;, {st_mode=S_IFREG|0664, st_size=40971, ...}) = 0
+</code></pre><blockquote>
+<p>这里的<code>2&gt;&amp;1</code> 是将标准错误输出重定向到标准输出。</p>
+</blockquote>
+<h3 id="查找为什么程序没有打开指定文件"><a href="#查找为什么程序没有打开指定文件" class="headerlink" title="查找为什么程序没有打开指定文件"></a>查找为什么程序没有打开指定文件</h3><pre><code>$ strace -e open,access 2&gt;&amp;1 |grep your-filename
+</code></pre><p><code>-e</code>参数指定了一个限定表达式用于指定要跟踪的事件和如何跟踪它们。</p>
+<pre><code>[qualifier=][!]value1[,value2]...
+</code></pre><p>这里的<code>qualifier</code>可选值为: <code>trace</code>, <code>abbrev</code>, <code>verbose</code>, <code>raw</code>, <code>signal</code>, <code>read</code>, <code>write</code>。默认的<code>qualifier</code>是<code>trace</code>。</p>
+<h3 id="查看进程正在执行什么操作"><a href="#查看进程正在执行什么操作" class="headerlink" title="查看进程正在执行什么操作"></a>查看进程正在执行什么操作</h3><pre><code>root@dev:~# strace -p 15427
+Process 15427 attached - interrupt to quit
+futex(0x402f4900, FUTEX_WAIT, 2, NULL
+Process 15427 detached
+</code></pre><p><code>-p</code>指定了strace跟踪的进程的pid，这样就避免了每次执行strace时需要重启程序。</p>
+<h3 id="查看进程的哪些操作比较耗时"><a href="#查看进程的哪些操作比较耗时" class="headerlink" title="查看进程的哪些操作比较耗时"></a>查看进程的哪些操作比较耗时</h3><pre><code>root@dev:~# strace -c -p 11084
+Process 11084 attached - interrupt to quit
+Process 11084 detached
+% time     seconds  usecs/call     calls    errors syscall
+------ ----------- ----------- --------- --------- ----------------
+ 94.59    0.001014          48        21           select
+  2.89    0.000031           1        21           getppid
+  2.52    0.000027           1        21           time
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.001072                    63           total
+</code></pre><p><code>-c</code>参数用于统计进程做了哪些系统调用，调用的时间统计等，并对这些信息做一个汇总显示。</p>
+<h3 id="查看为什么xxx无法连接到服务器"><a href="#查看为什么xxx无法连接到服务器" class="headerlink" title="查看为什么xxx无法连接到服务器"></a>查看为什么xxx无法连接到服务器</h3><pre><code>$ strace -e poll,select,connect,recvfrom,sendto nc www.news.com 80
+sendto(3, &quot;\\24\\0\\0\\0\\26\\0\\1\\3\\255\\373NH\\0\\0\\0\\0\\0\\0\\0\\0&quot;, 20, 0, {sa_family=AF_NETLINK, pid=0, groups=00000000}, 12) = 20
+connect(3, {sa_family=AF_FILE, path=&quot;/var/run/nscd/socket&quot;}, 110) = -1 ENOENT (No such file or directory)
+connect(3, {sa_family=AF_FILE, path=&quot;/var/run/nscd/socket&quot;}, 110) = -1 ENOENT (No such file or directory)
+...
+</code></pre><blockquote>
+<p>参考<a href="http://www.hokstad.com/5-simple-ways-to-troubleshoot-using-strace" target="_blank" rel="noopener">5 simple ways to troubleshoot using Strace</a></p>
+</blockquote>
+<h2 id="nc命令"><a href="#nc命令" class="headerlink" title="nc命令"></a>nc命令</h2><p>该命令用于创建任意的TCP/UDP连接或者是监听连接。</p>
+<h3 id="建立一个基本的C-S模型-文件远程复制"><a href="#建立一个基本的C-S模型-文件远程复制" class="headerlink" title="建立一个基本的C/S模型(文件远程复制)"></a>建立一个基本的C/S模型(文件远程复制)</h3><p>在Server1上，使用nc命令创建一个服务端：</p>
+<pre><code>server1 $ nc -l 1234
+</code></pre><p>在Server2上，使用nc作为客户端连接到server1</p>
+<pre><code>server2 $ nc server1的IP地址 1234
+</code></pre><p>这样就建立起一个简单的C/S连接，在server2中输入任何内容，在server1都可以接受到（同步显示）。</p>
+<p>上面的例子可以改造实现文件远程发送</p>
+<pre><code>server1 $ nc -l 1234 &gt; filename.out
+</code></pre><p>在server2上</p>
+<pre><code>server2 $ nc server1的IP地址 1234 &lt; filename.in
+</code></pre><blockquote>
+<p><code>-l</code> 指定了nc应该作为server端监听指定的端口</p>
+</blockquote>
+<h3 id="模拟HTTP请求"><a href="#模拟HTTP请求" class="headerlink" title="模拟HTTP请求"></a>模拟HTTP请求</h3><pre><code># echo -n &quot;GET / HTTP/1.0\r\n\r\n&quot; | nc php.net 80
+HTTP/1.1 400 Bad Request
+Server: nginx/1.6.2
+Date: Tue, 16 Dec 2014 08:09:35 GMT
+Content-Type: text/html
+Content-Length: 172
+Connection: close
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;400 Bad Request&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor=&quot;white&quot;&gt;
+&lt;center&gt;&lt;h1&gt;400 Bad Request&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.6.2&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h3><p>端口扫描的作用还是比较大的，使用<code>nc</code>可以方便的进行端口扫描。</p>
+<pre><code># nc -z letv.com 1-100
+Connection to letv.com 22 port [tcp/ssh] succeeded!
+Connection to letv.com 80 port [tcp/http] succeeded!
+</code></pre><p>这里的<code>1-100</code>指定了扫描的端口范围，<code>-z</code>参数告诉nc命令只报告开放的端口。</p>
+<blockquote>
+<p>默认<code>nc</code>命令发送的是tcp请求，通过指定参数<code>-u</code>可以发送udp请求。</p>
+</blockquote>
+<h3 id="目录传输"><a href="#目录传输" class="headerlink" title="目录传输"></a>目录传输</h3><p>下面例子中，将server2的phpredis-master目录拷贝到server1。</p>
+<p>server1:</p>
+<pre><code># nc -l 1234|tar zxvf -
+</code></pre><p>server2:</p>
+<pre><code># tar zcvf - phpredis-master|nc server1的IP地址 1234
+</code></pre><blockquote>
+<p>参考<a href="http://blog.csdn.net/wang7dao/article/details/7684998" target="_blank" rel="noopener">Linux nc命令详解</a></p>
+</blockquote>
+<h2 id="pstree命令"><a href="#pstree命令" class="headerlink" title="pstree命令"></a>pstree命令</h2><p>该命令用于显示进程树，以树的形式显示正在运行的进程，树的根节点是指定的pid（忽略则为init进程）。</p>
+<pre><code>[root@cdn ~]# pstree -p $(pgrep -uroot php-fpm)
+php-fpm(5445)─┬─php-fpm(5446)
+              ├─php-fpm(5447)
+              ├─php-fpm(5448)
+              ├─php-fpm(7540)
+              ├─php-fpm(21639)
+              └─php-fpm(24727)
+</code></pre><h2 id="ss命令"><a href="#ss命令" class="headerlink" title="ss命令"></a>ss命令</h2><p><code>ss</code>命令用于显示socket的统计信息。</p>
+<h3 id="显示socket的汇总信息"><a href="#显示socket的汇总信息" class="headerlink" title="显示socket的汇总信息"></a>显示socket的汇总信息</h3><p><code>-s</code>选项用于显示汇总信息。</p>
+<pre><code># ss -s
+Total: 247 (kernel 290)
+TCP:   214 (estab 68, closed 130, orphaned 0, synrecv 0, timewait 130/0), ports 135
+
+Transport Total     IP        IPv6
+*      290       -         -
+RAW      0         0         0
+UDP      11        7         4
+TCP      84        81        3
+INET      95        88        7
+FRAG      0         0         0
+</code></pre><h3 id="查看所有打开的网络端口"><a href="#查看所有打开的网络端口" class="headerlink" title="查看所有打开的网络端口"></a>查看所有打开的网络端口</h3><p><code>-l</code>选项用于列出当前正在监听的socket。</p>
+<pre><code># ss -l
+State      Recv-Q Send-Q      Local Address:Port          Peer Address:Port
+LISTEN     0      128             127.0.0.1:smux                     *:*
+LISTEN     0      128             127.0.0.1:9000                     *:*
+LISTEN     0      50                      *:3306                     *:*
+LISTEN     0      1024                   :::11211                   :::*
+</code></pre><p>使用<code>ss -pl</code>可以查看使用网络端口的进程名称，这里的<code>-p</code>选项用于显示进程信息。</p>
+<pre><code># ss -pl
+State      Recv-Q Send-Q      Local Address:Port          Peer Address:Port
+LISTEN     0      128             127.0.0.1:smux                     *:*        users:((&quot;snmpd&quot;,1256,8))
+LISTEN     0      50                      *:3306                     *:*        users:((&quot;mysqld&quot;,17651,10))
+LISTEN     0      1024                   :::11211                   :::*        users:((&quot;memcached&quot;,1849,34))
+LISTEN     0      1024                    *:11211                    *:*        users:((&quot;memcached&quot;,1849,33))
+LISTEN     0      511             127.0.0.1:6379                     *:*        users:((&quot;redis-server&quot;,1403,4))
+</code></pre><blockquote>
+<p>使用<code>ss -pl|grep 端口号</code>查看端口被那个进程占用。</p>
+</blockquote>
+<h3 id="显示所有的TCP-UDP-Socket"><a href="#显示所有的TCP-UDP-Socket" class="headerlink" title="显示所有的TCP/UDP Socket"></a>显示所有的TCP/UDP Socket</h3><p>参数<code>-a</code>(<code>--all</code>)用于显示所有的socket，<code>-t</code>指的是TCP， <code>-u</code>是UDP, <code>-w</code>是RAW, <code>-x</code>是UNIX。</p>
+<pre><code># ss -t -a
+# ss -u -a
+# ss -w -a
+# ss -x -a
+</code></pre><blockquote>
+<p>参考<a href="http://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html" target="_blank" rel="noopener">ss: Display Linux TCP / UDP Network and Socket Information
+</a></p>
+</blockquote>
+<h2 id="w-who命令"><a href="#w-who命令" class="headerlink" title="w/who命令"></a>w/who命令</h2><p><code>w</code>命令用于查看当前哪些用户登录到系统和他们正在做什么，<code>who</code>命令仅用于查看哪些用户登录系统。</p>
+<pre><code># w
+ 15:39:08 up 126 days, 22:35,  3 users,  load average: 0.02, 0.05, 0.02
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    10.58.92.228     13:29    1:35m  0.03s  0.03s -bash
+root     pts/1    10.58.93.56      10:32    5:06m  0.00s  0.00s -bash
+root     pts/4    10.58.88.20      12:29    0.00s  0.20s  0.00s w
+# who
+root     pts/0        2014-12-18 13:29 (10.58.92.228)
+root     pts/1        2014-12-18 10:32 (10.58.93.56)
+root     pts/4        2014-12-18 12:29 (10.58.88.20)
+</code></pre><h2 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h2><p>报告CPU的统计信息，设备、分区、网络文件系统（NFS）的I/O统计信息。</p>
+<pre><code># iostat
+Linux 2.6.32-903.279.9.1.el6.x86_64 (localhost)     2014年12月18日 _x86_64_    (2 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.35    0.00    0.34    0.42    0.15   98.74
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+vda               4.01         0.35        56.76    3866731  622586087
+dm-0              3.29         0.09        26.33     989378  288796192
+dm-1              3.45         0.05        27.60     554922  302727584
+dm-2              0.32         0.21         2.83    2296845   31060799
+</code></pre><p>这里对几个性能指标进行解释：</p>
+<ul>
+<li><strong>tps</strong> 每秒发送的I/O请求数</li>
+<li><strong>Blk_read/s</strong> 每秒读取的block数</li>
+<li><strong>Blk_wrtn/s</strong> 每秒写入的block数</li>
+<li><strong>Blk_read</strong> 读取的block数</li>
+<li><strong>Blk_wrtn</strong> 写入的block数</li>
+</ul>
+<blockquote>
+<p>通过指定<code>-d</code>参数可以设定自动按照指定时间间隔显示统计信息。例如，下列命令每隔2s显示一次。</p>
+</blockquote>
+<pre><code>$ iostat -d 2
+</code></pre><h2 id="iptraf-命令：实时网络统计"><a href="#iptraf-命令：实时网络统计" class="headerlink" title="iptraf 命令：实时网络统计"></a>iptraf 命令：实时网络统计</h2><p>交互式的IP网络实时监控工具，图形化界面，比较方便。</p>
+<pre><code># iptraf
+</code></pre><p>界面如下:</p>
+<p><img src="https://oayrssjpa.qnssl.com/2016-10-31-iptraf.png" alt="iptraf"></p>
+<blockquote>
+<p>参考<a href="http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html" target="_blank" rel="noopener">20 Linux System Monitoring Tools Every SysAdmin Should Know</a></p>
+</blockquote>
+<h2 id="查看Linux的版本（Red-Hat-Cent-OS）"><a href="#查看Linux的版本（Red-Hat-Cent-OS）" class="headerlink" title="查看Linux的版本（Red Hat/Cent OS）"></a>查看Linux的版本（Red Hat/Cent OS）</h2><p>在RedHat和Cent OS下，使用如下命令查看当前系统的版本。</p>
+<pre><code>$ cat /etc/centos-release
+CentOS release 6.3 (Final)
+</code></pre><h2 id="time命令：-统计程序执行时间"><a href="#time命令：-统计程序执行时间" class="headerlink" title="time命令： 统计程序执行时间"></a>time命令： 统计程序执行时间</h2><p>用于统计程序执行时间，这些事件包含程序从被调用到终止的时间，用户CPU时间，系统CPU时间。</p>
+<!--more-->
+<pre><code>$ time ls
+bakup                PDO-1.0.3.tgz     rinetd.tar.gz     yaf-2.2.9.tgz
+channel.xml          package2.xml      PDO_MYSQL-1.0.2      xhprof-0.9.4      zendopcache-7.0.3
+go-pear.phar         package.xml       PDO_MYSQL-1.0.2.tgz  xhprof-0.9.4.tgz  zendopcache-7.0.3.tgz
+PDO-1.0.3            rinetd            yaf-2.2.9
+
+real    0m0.002s
+user    0m0.000s
+sys 0m0.001s
+</code></pre><h2 id="tee命令"><a href="#tee命令" class="headerlink" title="tee命令"></a>tee命令</h2><p><code>tee</code>命令用于将标准输入拷贝到标准输出。</p>
+<pre><code>$ echo &quot;hello,world&quot;|tee -a test.txt
+</code></pre><p>上述命令将hello,world字符串输出到test.txt文件中,<strong>-a</strong> 默认情况下，<code>tee</code>命令会使用<code>&gt;</code>覆盖输出到文件，使用-a属性，会使用<code>&gt;&gt;</code>追加方式</p>
+<h2 id="netstat命令"><a href="#netstat命令" class="headerlink" title="netstat命令"></a>netstat命令</h2><p>查看端口占用情况</p>
+<pre><code># netstat -apn
+</code></pre><ul>
+<li><strong>-a</strong>（–all） 显示所有的socket信息（包括监听和未监听）</li>
+<li><strong>-p</strong>（–program） 显示每个socket所属于的进程名称和PID</li>
+<li><strong>-n</strong>（–numeric） 显示数字形式的地址而不是符号化的主机名、端口或者用户名</li>
+</ul>
+<h2 id="perf命令"><a href="#perf命令" class="headerlink" title="perf命令"></a>perf命令</h2><p><code>perf</code>命令是随Linux内核代码一同发布和维护的性能诊断工具，由内核社区负责维护和发展。Perf不仅可以用于应用程序性能统计分析，也可以应用于内核代码的的性能统计和分析。</p>
+<p>在Cent OS系统上，如果没有该命令的话，可以使用yum进行安装。</p>
+<pre><code># yum install perf
+</code></pre><p><code>perf</code>命令非常强大，详细介绍的话篇幅比较长，可以阅读这篇文章 <a href="http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/" target="_blank" rel="noopener">Perf – Linux下的系统性能调优工具</a>。</p>
+<pre><code>用法: perf [--version] [--help] COMMAND [ARGS]
+
+ 最常用的perf命令:
+   annotate        读取perf.data (使用perf record创建)文件并且显示标注的代码
+   archive         Create archive with object files with build-ids found in perf.data file
+   bench           进行基准测试的框架工具集
+   buildid-cache   Manage build-id cache.
+   buildid-list    List the buildids in a perf.data file
+   diff            Read perf.data files and display the differential profile
+   evlist          List the event names in a perf.data file
+   inject          Filter to augment the events stream with additional information
+   kmem            Tool to trace/measure kernel memory(slab) properties
+   kvm             Tool to trace/measure kvm guest os
+   list            列出所有事件类型的符号
+   lock            分析锁事件
+   mem             分析对内存的访问
+   record          运行一个命令并且记录它的分析结果到perf.data文件中
+   report          读取perf.data文件并且显示分析结果
+   sched           Tool to trace/measure scheduler properties (latencies)
+   script          Read perf.data (created by perf record) and display trace output
+   stat            运行一个命令并且收集性能计数统计信息
+   test            运行可用性测试
+   timechart       Tool to visualize total system behavior during a workload
+   top             系统分析工具.
+   trace           受strace启发创建的工具
+   probe           定义一个新的动态跟踪点
+
+ See &apos;perf help COMMAND&apos; for more information on a specific command.
+</code></pre><h3 id="perf-stat"><a href="#perf-stat" class="headerlink" title="perf stat"></a>perf stat</h3><p><code>perf stat</code>通过概括精简的方式提供被调试程序运行的整体情况和汇总数据。</p>
+<p>创建如下C程序test.c</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i = 1;
+    while (1) {
+        if (i == 100000) break;
+        i ++;
+    }
+    return 0;
+}
+</code></pre><p>编译<code>gcc test.c -o test</code>。</p>
+<pre><code>$ perf stat ./test
+
+ Performance counter stats for &apos;./test&apos;:
+
+          0.837322 task-clock                #    0.747 CPUs utilized          
+                 1 context-switches          #    0.001 M/sec                  
+                 0 CPU-migrations            #    0.000 M/sec                  
+                98 page-faults               #    0.117 M/sec                  
+           269,259 cycles                    #    0.322 GHz                     [90.39%]
+           897,270 stalled-cycles-frontend   #  333.24% frontend cycles idle   
+           226,746 stalled-cycles-backend    #   84.21% backend  cycles idle   
+           764,602 instructions              #    2.84  insns per cycle        
+                                             #    1.17  stalled cycles per insn
+           267,843 branches                  #  319.881 M/sec                  
+             3,467 branch-misses             #    1.29% of all branches         [80.37%]
+
+       0.001121130 seconds time elapsed
+</code></pre><p>第一个<code>task-clock</code>是CPU利用率，该值比较高，说明该程序属于CPU密集型。第二个<code>context-switches</code>是进程上下文切换次数，频繁的切换次数应该是要避免的。</p>
+<h3 id="perf-top"><a href="#perf-top" class="headerlink" title="perf top"></a>perf top</h3><p>用于实时显示当前系统的性能统计信息。该命令主要用来观察整个系统当前的状态，比如可以通过查看该命令的输出来查看当前系统最耗时的内核函数或某个用户进程。</p>
+<blockquote>
+<p>执行该命令需要root权限。</p>
+</blockquote>
+<p>使用方法如下</p>
+<pre><code>$ sudo perf top
+</code></pre><p>程序会与top命令类似，动态输出以下内容</p>
+<pre><code>Samples: 1K of event &apos;cpu-clock&apos;, Event count (approx.): 8071695
+ 39.60%  [kernel]             [k] __do_softirq
+ 13.46%  [kernel]             [k] _raw_spin_unlock_irqrestore
+  9.37%  [kernel]             [k] VbglGRPerform
+  8.47%  [kernel]             [k] e1000_xmit_frame
+  6.01%  [kernel]             [k] finish_task_switch
+  5.82%  [kernel]             [k] e1000_clean
+  5.15%  [kernel]             [k] native_read_tsc
+  4.75%  [kernel]             [k] kmem_cache_free
+  1.32%  [kernel]             [k] tick_nohz_idle_enter
+  1.28%  libc-2.17.so         [.] __strstr_sse2
+  1.22%  libc-2.17.so         [.] __memset_sse2
+  0.82%  libc-2.17.so         [.] __GI___strcmp_ssse3
+  0.42%  libpython2.7.so.1.0  [.] 0x000000000007e7c6
+  0.42%  libc-2.17.so         [.] __strchrnul
+  0.39%  [kernel]             [k] e1000_alloc_rx_buffers
+  0.38%  libz.so.1.2.7        [.] 0x0000000000002d76
+  0.24%  [kernel]             [k] tick_nohz_idle_exit
+  0.21%  [kernel]             [k] kfree
+</code></pre><h3 id="perf-report-record"><a href="#perf-report-record" class="headerlink" title="perf report/record"></a>perf report/record</h3><p>使用 top 和 stat 之后，您可能已经大致有数了。要进一步分析，便需要一些粒度更细的信息。比如说您已经断定目标程序计算量较大，也许是因为有些代码写的不够精简。那么面对长长的代码文件，究竟哪几行代码需要进一步修改呢？这便需要使用 perf record 记录单个函数级别的统计信息，并使用 perf report 来显示统计结果。</p>
+<p>创建新的C程序test3，代码如下</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+void test();
+
+int main()
+{
+  test();
+  return 0;
+}
+
+void test()
+{
+  long i;
+  for (i = 0; i &lt; 10000000; i ++) {
+
+  }
+  puts(&quot;finished&quot;);
+}
+</code></pre><p>编译后，执行如下命令</p>
+<pre><code>$ perf record ./test3
+$ perf report
+</code></pre><p>输出以下内容</p>
+<pre><code>Samples: 68  of event &apos;cpu-clock&apos;, Event count (approx.): 17000000
+ 97.06%  test3  test3              [.] test
+  1.47%  test3  [kernel.kallsyms]  [k] __do_softirq
+  1.47%  test3  [kernel.kallsyms]  [k] queue_work_on
+</code></pre><p>从中可以看到，大部分时间都消耗在了test函数中。</p>
+<blockquote>
+<p><code>perf record</code>命令增加<code>-g</code>参数可以记录函数的调用图信息。更多详情参考: <a href="http://www.ibm.com/developerworks/cn/linux/l-cn-perf1/" target="_blank" rel="noopener">Perf – Linux下的系统性能调优工具</a></p>
+</blockquote>
+<h2 id="lsof命令-列出打开的文件"><a href="#lsof命令-列出打开的文件" class="headerlink" title="lsof命令: 列出打开的文件"></a>lsof命令: 列出打开的文件</h2><p>工具<code>lsof</code>是一个可以列出操作系统打开的文件的工具，在Linux系统中，任何事物都是以文件的形式存在，通过文件不仅可以访问常规文件，还可以访问网络连接和硬件设备。</p>
+<p>在终端下直接输入<code>lsof</code>命令，会列出当前系统打开的所有文件，因为它需要列出核心内存和各种文件，所以必须使用root用户运行才能显示详细的信息。</p>
+<pre><code>COMMAND     PID      USER   FD      TYPE             DEVICE  SIZE/OFF       NODE NAME
+init          1      root  cwd       DIR              253,0      4096          2 /
+init          1      root  rtd       DIR              253,0      4096          2 /
+init          1      root  txt       REG              253,0    150352      10973 /sbin/init
+init          1      root  mem       REG              253,0     65928     264638 /lib64/libnss_files-2.12.so
+init          1      root  mem       REG              253,0   1922112     265339 /lib64/libc-2.12.so
+init          1      root  mem       REG              253,0     93224     277540 /lib64/libgcc_s-4.4.6-20120305.so.1
+init          1      root  mem       REG              253,0     47064     267086 /lib64/librt-2.12.so
+...
+</code></pre><p>这里的<strong><em>COMMAND</em></strong>是进程名称，<strong><em>PID,USER</em></strong>分别指的是进程的ID和进程所有者，<strong><em>FD</em></strong>是文件描述符，<strong><em>TYPE</em></strong>是文件类型，<strong><em>DEVICE</em></strong>是磁盘名称，<strong><em>SIZE</em></strong>是文件大小，<strong><em>NODE</em></strong>是索引节点（文件在磁盘上的标识），<strong><em>NAME</em></strong>是打开文件的确切名称。</p>
+<p>对于<strong><em>FD</em></strong>的值，<em>cwd</em>表示当前工作目录，<em>Lnn</em>表示类库引用，<em>mem</em>表示内存映射文件，<em>rtd</em>表示根目录，<em>pd</em>表示父目录，<em>txt</em>表示进程的数据和代码。</p>
+<h3 id="常用参数及说明"><a href="#常用参数及说明" class="headerlink" title="常用参数及说明"></a>常用参数及说明</h3><ul>
+<li>lsof <strong>filename</strong> 显示打开指定文件的所有进程</li>
+<li>lsof <strong>-a</strong> 表示两个参数都必须满足时才显示结果</li>
+<li>lsof <strong>-c string</strong> 显示COMMAND列中包含指定字符的进程所有打开的文件</li>
+<li>lsof <strong>-u username</strong> 显示所属user进程打开的文件</li>
+<li>lsof <strong>-g gid</strong> 显示归属gid的进程情况</li>
+<li>lsof <strong>+d /DIR/</strong> 显示目录下被进程打开的文件</li>
+<li>lsof <strong>+D /DIR/</strong> 同上，但是会搜索目录下的所有目录，时间相对较长</li>
+<li>lsof <strong>-d FD</strong> 显示指定文件描述符的进程</li>
+<li>lsof <strong>-n</strong> 不将IP转换为hostname，缺省是不加上-n参数</li>
+<li>lsof <strong>-i</strong> 用以显示符合条件的进程情况</li>
+<li>lsof <strong>-p PID</strong> 选择指定PID</li>
+<li>lsof <strong>-i[46] [protocol][@hostname|hostaddr][:service|port]</strong><br>  46: IPv4 or IPv6<br>  protocol: TCP or UDP<br>  hostname: Internet host name<br>  hostaddr: IPv4地址<br>  service: /etc/service中的 service name (可以不只一个)<br>  port: 端口号 (可以不只一个)</li>
+</ul>
+<blockquote>
+<p>参考: <a href="http://baike.baidu.com/link?url=VXbFBeisjSpMDZzkUQlNiDZrCAi6p7q1TJcgbCT4J4k4mxcU2fyoYOj1Vz8KCBBAKeTJ5qNeeqTnGYhMAh-zfK" target="_blank" rel="noopener">百度文库</a></p>
+</blockquote>
+<h2 id="unzip命令"><a href="#unzip命令" class="headerlink" title="unzip命令"></a>unzip命令</h2><p>unzip命令用于解压<code>.zip</code>文件，常用参数如下</p>
+<ul>
+<li><strong>-f</strong> 只更新磁盘上已经存在的文件</li>
+<li><strong>-u</strong> 更新磁盘上存在的文件，文件不存在则创建</li>
+<li><strong>-o</strong> 如果文件已经存在则直接覆盖，不提示</li>
+<li><strong>-d</strong> 指定解压到的目录</li>
+</ul>
+<p>例如，解压<code>test.zip</code>到<code>/var/www</code>目录，部署web站点</p>
+<pre><code># unzip -u -o -d /var/www test.zip
+# chown -R www:www /var/www
+</code></pre><h2 id="使用pushd和popd命令快速切换目录"><a href="#使用pushd和popd命令快速切换目录" class="headerlink" title="使用pushd和popd命令快速切换目录"></a>使用pushd和popd命令快速切换目录</h2><p>经常会有这么一种情况，我们会在不同目录中进行频繁的切换，如果目录很深，那么使用<code>cd</code>命令的工作量是不小的，这时可以使用<code>pushd</code>和<code>popd</code>命令快速切换目录。</p>
+<pre><code>$ pwd
+/Users/mylxsw/codes/php/lecloud/api
+$ pushd .
+~/codes/php/lecloud/api ~/codes/php/lecloud/api
+$ cd ../album/
+$ pwd
+/Users/mylxsw/codes/php/lecloud/album
+$ popd
+~/codes/php/lecloud/api
+$ pwd
+/Users/mylxsw/codes/php/lecloud/api
+</code></pre><h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><p>在服务器和本地计算机之间传递文件</p>
+<pre><code>usage: scp [-12346BCEpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program]
+           [[user@]host1:]file1 ... [[user@]host2:]file2
+</code></pre><p>从服务器下载文件</p>
+<pre><code>scp username@服务器地址:/path/文件名 本地保存路径
+</code></pre><p>上传文件到服务器</p>
+<pre><code>scp 本地文件路径 username@服务器地址:/保存到服务器的路径
+</code></pre><blockquote>
+<p>Tip: 如果要操作的对象是整个目录的话，需要添加<code>-t</code>参数。</p>
+</blockquote>
+<p>使用范例:</p>
+<pre><code>localhost:Downloads mylxsw$ scp guanyy@10.10.10.10:/home/guanyy/download.db ./
+guanyy@10.10.10.10&apos;s password:
+download.db                                   100%   25MB  24.7MB/s   00:01
+</code></pre><h2 id="Mac-OS-清理DNS缓存"><a href="#Mac-OS-清理DNS缓存" class="headerlink" title="Mac OS 清理DNS缓存"></a>Mac OS 清理DNS缓存</h2><pre><code>dscacheutil -flushcache
+</code></pre><h2 id="Cent-OS服务器安装PHP的pecl"><a href="#Cent-OS服务器安装PHP的pecl" class="headerlink" title="Cent OS服务器安装PHP的pecl"></a>Cent OS服务器安装PHP的pecl</h2><p>想要安装某个PHP扩展，但发现服务器上没有pecl，因此需要安装pecl。</p>
+<pre><code>$ sudo yum install php-pear
+</code></pre><p>安装pear之后，pecl就有了。</p>
+<h2 id="在当前目录下查找大小超过100MB的文件"><a href="#在当前目录下查找大小超过100MB的文件" class="headerlink" title="在当前目录下查找大小超过100MB的文件"></a>在当前目录下查找大小超过100MB的文件</h2><pre><code>find . -type f -size +100M
+</code></pre><h2 id="转换iso格式为dmg"><a href="#转换iso格式为dmg" class="headerlink" title="转换iso格式为dmg"></a>转换iso格式为dmg</h2><pre><code>hdiutil convert -format UDRW -o ubuntu-16.04-desktop-amd64.img ubuntu-16.04-desktop-amd64.iso
+</code></pre><h2 id="查看磁盘设备"><a href="#查看磁盘设备" class="headerlink" title="查看磁盘设备"></a>查看磁盘设备</h2><pre><code>diskutil list
+</code></pre><blockquote>
+<p>卸载磁盘： <code>diskutil umountDisk /dev/disk1</code></p>
+</blockquote>
+<h2 id="拷贝镜像到U盘"><a href="#拷贝镜像到U盘" class="headerlink" title="拷贝镜像到U盘"></a>拷贝镜像到U盘</h2><pre><code>dd if=yourimage.img of=/dev/sdb1
+</code></pre><h2 id="使用基于文本的图形界面配置命令setup"><a href="#使用基于文本的图形界面配置命令setup" class="headerlink" title="使用基于文本的图形界面配置命令setup"></a>使用基于文本的图形界面配置命令setup</h2><p>安装setup命令</p>
+<pre><code>$ sudo yum install setuptool
+</code></pre><p>安装之后，需要安装一些常见的系统配置组件，也是使用yum：</p>
+<pre><code>$ sudo yum install system-config-services system-config-firewall system-config-network-tui
+</code></pre><p>更多的配置组件可以使用<code>yum search system-config</code>命令查看，进入配置界面直接使用<code>setup</code>命令。</p>
+<h2 id="使用sed批量操作文件"><a href="#使用sed批量操作文件" class="headerlink" title="使用sed批量操作文件"></a>使用sed批量操作文件</h2><p>下面这个命令实现了批量把符合<code>.env*</code>规则的文件中，删除包含<code>APP_TIMEZONE</code>的行，追加两行新的配置</p>
+<pre><code>find . -name &apos;.env*&apos; -exec sed -i &apos;&apos; -e &apos;/APP_TIMEZONE/d&apos; -e &apos;$ a \
+DB_TIMEZONE=+08:00\
+APP_TIME_ZONE=PRC\
+&apos; {} \;
+</code></pre><p>下面的命令实现了批量替换符合<code>.env*</code>规则的文件中的<code>APP_TIME_ZONE</code>为<code>APP_TIMEZONE</code></p>
+<pre><code>find . -name &apos;.env*&apos; -exec sed -i &apos;&apos; -e &apos;s/APP_TIME_ZONE/APP_TIMEZONE/&apos; {} \;
+</code></pre><h2 id="查看路由规则"><a href="#查看路由规则" class="headerlink" title="查看路由规则"></a>查看路由规则</h2><pre><code>[root@tristan]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.99.0    0.0.0.0         255.255.255.0   U     0      0        0 eth0
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+0.0.0.0         192.168.99.254  0.0.0.0         UG    0      0        0 eth0
+[root@tristan]# ip route show
+192.168.99.0/24 dev eth0  scope link 
+127.0.0.0/8 dev lo  scope link 
+default via 192.168.99.254 dev eth0
+</code></pre>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/03/20/三十分钟学会SED/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux命令必知必会"><span class="toc-text">Linux命令必知必会</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#top命令"><span class="toc-text">top命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pgrep-pkill-命令"><span class="toc-text">pgrep/pkill 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#except命令"><span class="toc-text">except命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现控制台SSH直接登陆Linux服务器"><span class="toc-text">实现控制台SSH直接登陆Linux服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pstack命令"><span class="toc-text">pstack命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strace命令"><span class="toc-text">strace命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#找出应用程序启动时读取的配置文件"><span class="toc-text">找出应用程序启动时读取的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找为什么程序没有打开指定文件"><span class="toc-text">查找为什么程序没有打开指定文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看进程正在执行什么操作"><span class="toc-text">查看进程正在执行什么操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看进程的哪些操作比较耗时"><span class="toc-text">查看进程的哪些操作比较耗时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看为什么xxx无法连接到服务器"><span class="toc-text">查看为什么xxx无法连接到服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nc命令"><span class="toc-text">nc命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立一个基本的C-S模型-文件远程复制"><span class="toc-text">建立一个基本的C/S模型(文件远程复制)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟HTTP请求"><span class="toc-text">模拟HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#端口扫描"><span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录传输"><span class="toc-text">目录传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pstree命令"><span class="toc-text">pstree命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ss命令"><span class="toc-text">ss命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显示socket的汇总信息"><span class="toc-text">显示socket的汇总信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看所有打开的网络端口"><span class="toc-text">查看所有打开的网络端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示所有的TCP-UDP-Socket"><span class="toc-text">显示所有的TCP/UDP Socket</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#w-who命令"><span class="toc-text">w/who命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iostat"><span class="toc-text">iostat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iptraf-命令：实时网络统计"><span class="toc-text">iptraf 命令：实时网络统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看Linux的版本（Red-Hat-Cent-OS）"><span class="toc-text">查看Linux的版本（Red Hat/Cent OS）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#time命令：-统计程序执行时间"><span class="toc-text">time命令： 统计程序执行时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tee命令"><span class="toc-text">tee命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#netstat命令"><span class="toc-text">netstat命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#perf命令"><span class="toc-text">perf命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#perf-stat"><span class="toc-text">perf stat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#perf-top"><span class="toc-text">perf top</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#perf-report-record"><span class="toc-text">perf report/record</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lsof命令-列出打开的文件"><span class="toc-text">lsof命令: 列出打开的文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用参数及说明"><span class="toc-text">常用参数及说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unzip命令"><span class="toc-text">unzip命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用pushd和popd命令快速切换目录"><span class="toc-text">使用pushd和popd命令快速切换目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SCP"><span class="toc-text">SCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac-OS-清理DNS缓存"><span class="toc-text">Mac OS 清理DNS缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cent-OS服务器安装PHP的pecl"><span class="toc-text">Cent OS服务器安装PHP的pecl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在当前目录下查找大小超过100MB的文件"><span class="toc-text">在当前目录下查找大小超过100MB的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换iso格式为dmg"><span class="toc-text">转换iso格式为dmg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看磁盘设备"><span class="toc-text">查看磁盘设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝镜像到U盘"><span class="toc-text">拷贝镜像到U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用基于文本的图形界面配置命令setup"><span class="toc-text">使用基于文本的图形界面配置命令setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用sed批量操作文件"><span class="toc-text">使用sed批量操作文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看路由规则"><span class="toc-text">查看路由规则</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

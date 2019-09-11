@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="[TOC]
+如何让服务器ssh免密登录1.进入~/.ssh目录，在本地生成相关私钥与公钥。12~/.ssh ⌚ 17:03:35 $ ssh-keygen -b 4096 -t rsa -C h...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/04/23</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>[TOC]</p>
+<h1 id="如何让服务器ssh免密登录"><a href="#如何让服务器ssh免密登录" class="headerlink" title="如何让服务器ssh免密登录"></a>如何让服务器ssh免密登录</h1><h2 id="1-进入-ssh目录，在本地生成相关私钥与公钥。"><a href="#1-进入-ssh目录，在本地生成相关私钥与公钥。" class="headerlink" title="1.进入~/.ssh目录，在本地生成相关私钥与公钥。"></a>1.进入~/.ssh目录，在本地生成相关私钥与公钥。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/.ssh ⌚ 17:03:35 </span><br><span class="line">$ ssh-keygen -b 4096 -t rsa -C huzekang@mac</span><br></pre></td></tr></table></figure>
+<p>命令执行完成之后，在当前目录会生成id_rsa和id_rsa.pub两个key文件。 </p>
+<p>参数<code>b</code>指定key的长度，本例中指定的长度为4096。参数t指定加密算法，本例中使用的RSA加密算法。 </p>
+<p>参数<code>C</code>可以是邮件地址或域名等，会被添加到key的尾部，以示区分。 </p>
+<h2 id="2-查看本地生成的公钥"><a href="#2-查看本地生成的公钥" class="headerlink" title="2.查看本地生成的公钥"></a>2.查看本地生成的公钥</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ccat id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>可以看到如下内容 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCzJHp0kkSF8Y/77rGQuTW3lfS3roMt7TI57yhyQZtKqTzaWUMKwALUOD/mop0wuqEyY40EDRG/Wxu/VRzVoaWZ6COQ2q2jXyLU49W/dGtGBHBsrJPTq0Y+AZ2Lk3B4sQrSzqy+jRsum5nrv/vYiVQZBhJMEHMPAe9Tqs+fLccOqkEKaG9l6+n5bHBRsRd8vGw6TmyanCB7kWgWX8+umkMRM+aeYagw+ryktxs5R3t9FQhQuYXY8mYrOrbXmZH3jso7cJ6Bcv20tVDMjZbe0x+zNLcu3DRz0mdFytPrs2ZoWPphYrsDE7rBRSzNAQeR9zQkqQu0f6Nexu2PXPHsCrHcrTGhw2YKajCtMivrqDzF2b2DC6IZ3Y8Td04c+2RKB3572/sIO4o+/U4YpYiQoELmPYdav6s042D+Uk2HUdRHnAs3G4FSVI4V7vu1V4S0TsYCuhd7oIImya2IeHjof+yH9FGKTYtJ5JjMqXRYiZOTfvIFxQRrtdZHtEyzjvkkZPEhro1Df8u7jVVVSYbaUb9451nKAg3ew0+6h1LXeQM+lrZ9aZlszzJL36BKKeQQFg4qndPzXX4XdiyfhTo+yhvFHeAnAWLL6W3xtwhnEVXIwDRSG03bSTqbum41x9bFS1c3wzFXsAKIpMfhHUlgiW+A8Mk4aQ2phNSaFyX2xW3GcQ== huzekang@mac</span><br></pre></td></tr></table></figure>
+<p>可以看到最后跟上的是之前加的标识huzekang@mac。 </p>
+<h2 id="3-将公钥上传到服务器"><a href="#3-将公钥上传到服务器" class="headerlink" title="3.将公钥上传到服务器"></a>3.将公钥上传到服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i id_rsa.pub -p 50000 hzk@134.175.29.194</span><br></pre></td></tr></table></figure>
+<p>参数<code>i</code>是指定公钥文件。 </p>
+<p>参数<code>p</code>是ssh的端口。 </p>
+<p>过程中需要输入该账户ssh登录时的密码，输入正确后，可以看到如下内容输出。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;id_rsa.pub&quot; </span><br><span class="line"></span><br><span class="line">/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed </span><br><span class="line"></span><br><span class="line">/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys </span><br><span class="line"></span><br><span class="line">hzk@134.175.29.194&apos;s password: </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Number of key(s) added:        1 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Now try logging into the machine, with:   &quot;ssh -p &apos;50000&apos; &apos;hzk@134.175.29.194&apos;&quot; </span><br><span class="line"></span><br><span class="line">and check to make sure that only the key(s) you wanted were added.</span><br></pre></td></tr></table></figure>
+<h2 id="4-此时打开服务器，检查授权登录文件"><a href="#4-此时打开服务器，检查授权登录文件" class="headerlink" title="4.此时打开服务器，检查授权登录文件"></a>4.此时打开服务器，检查授权登录文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-&gt; # cat authorized_keys</span><br></pre></td></tr></table></figure>
+<p>可以看到我们的公钥已经追加在文件中了。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCzJHp0kkSF8Y/77rGQuTW3lfS3roMt7TI57yhyQZtKqTzaWUMKwALUOD/mop0wuqEyY40EDRG/Wxu/VRzVoaWZ6COQ2q2jXyLU49W/dGtGBHBsrJPTq0Y+AZ2Lk3B4sQrSzqy+jRsum5nrv/vYiVQZBhJMEHMPAe9Tqs+fLccOqkEKaG9l6+n5bHBRsRd8vGw6TmyanCB7kWgWX8+umkMRM+aeYagw+ryktxs5R3t9FQhQuYXY8mYrOrbXmZH3jso7cJ6Bcv20tVDMjZbe0x+zNLcu3DRz0mdFytPrs2ZoWPphYrsDE7rBRSzNAQeR9zQkqQu0f6Nexu2PXPHsCrHcrTGhw2YKajCtMivrqDzF2b2DC6IZ3Y8Td04c+2RKB3572/sIO4o+/U4YpYiQoELmPYdav6s042D+Uk2HUdRHnAs3G4FSVI4V7vu1V4S0TsYCuhd7oIImya2IeHjof+yH9FGKTYtJ5JjMqXRYiZOTfvIFxQRrtdZHtEyzjvkkZPEhro1Df8u7jVVVSYbaUb9451nKAg3ew0+6h1LXeQM+lrZ9aZlszzJL36BKKeQQFg4qndPzXX4XdiyfhTo+yhvFHeAnAWLL6W3xtwhnEVXIwDRSG03bSTqbum41x9bFS1c3wzFXsAKIpMfhHUlgiW+A8Mk4aQ2phNSaFyX2xW3GcQ== huzekang@mac</span><br></pre></td></tr></table></figure>
+<h2 id="5-此时在mac中再次登录服务器"><a href="#5-此时在mac中再次登录服务器" class="headerlink" title="5.此时在mac中再次登录服务器"></a>5.此时在mac中再次登录服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -p 50000 hzk@134.175.29.194 </span><br><span class="line">Last login: Sat Feb 23 16:58:01 2019 from 183.48.88.227</span><br></pre></td></tr></table></figure>
+<p>不用输入密码也完成登录了。 </p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/04/25/使用idea连接hive/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2019/04/21/hbase/" class="next-post btn btn-default" title='hbase'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            hbase</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何让服务器ssh免密登录"><span class="toc-text">如何让服务器ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-进入-ssh目录，在本地生成相关私钥与公钥。"><span class="toc-text">1.进入~/.ssh目录，在本地生成相关私钥与公钥。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-查看本地生成的公钥"><span class="toc-text">2.查看本地生成的公钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-将公钥上传到服务器"><span class="toc-text">3.将公钥上传到服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-此时打开服务器，检查授权登录文件"><span class="toc-text">4.此时打开服务器，检查授权登录文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-此时在mac中再次登录服务器"><span class="toc-text">5.此时在mac中再次登录服务器</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

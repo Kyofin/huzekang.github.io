@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="postgres数据库实践常用操作12345678910111213141516171819202122232425262728293031323334353637383940414243444...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/06/02</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="postgres数据库实践"><a href="#postgres数据库实践" class="headerlink" title="postgres数据库实践"></a>postgres数据库实践</h1><h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建用户</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">role</span> jsontest <span class="keyword">password</span> <span class="string">'jsontest.dba'</span> createdb nosuperuser createrole login;</span><br><span class="line"><span class="comment">-- 创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> jsontest owner jsontest <span class="keyword">encoding</span> <span class="string">'utf-8'</span>;</span><br><span class="line"><span class="comment">-- 创建全局序列</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">sequence</span> <span class="keyword">if</span> <span class="keyword">exists</span> jsontest_uuid_seq <span class="keyword">cascade</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">sequence</span> jsontest_uuid_seq <span class="keyword">start</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 创建表(谁创建的表就是谁的)</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> TUsers <span class="keyword">cascade</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> TUsers(</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">default</span> <span class="keyword">nextval</span>(<span class="string">'jsontest_uuid_seq'</span>) primary <span class="keyword">key</span>, <span class="comment">--用户id</span></span><br><span class="line"> realName <span class="built_in">character</span> <span class="built_in">varying</span>(<span class="number">64</span>) <span class="comment">-- 真实姓名</span></span><br><span class="line">)<span class="keyword">WITH</span> ( OIDS=<span class="literal">FALSE</span> );</span><br><span class="line"><span class="comment">-- 为表字段添加注释</span></span><br><span class="line"><span class="keyword">comment</span> <span class="keyword">on</span> <span class="keyword">column</span> tusers.id <span class="keyword">is</span> <span class="string">'主键id'</span>;</span><br><span class="line"><span class="keyword">comment</span> <span class="keyword">on</span> <span class="keyword">column</span> tusers.realName <span class="keyword">is</span> <span class="string">'真实姓名'</span>;</span><br><span class="line"><span class="comment">-- 为表添加注释</span></span><br><span class="line"><span class="keyword">comment</span> <span class="keyword">on</span> <span class="keyword">table</span> tusers <span class="keyword">is</span> <span class="string">'用户表'</span>;</span><br><span class="line"><span class="comment">-- 为表添加索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> tusers_cellphone_idx <span class="keyword">on</span> tusers(realName);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Table: TProject,用户创建的项目表</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> TProject <span class="keyword">CASCADE</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TProject (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">DEFAULT</span> <span class="keyword">nextval</span>(<span class="string">'jsontest_uuid_seq'</span>) PRIMARY <span class="keyword">KEY</span>,<span class="comment">-- 活动id</span></span><br><span class="line"> title <span class="built_in">character</span> <span class="built_in">varying</span>(<span class="number">256</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">UNIQUE</span>, <span class="comment">-- 项目名称,设置为UNIQUE，避免混淆</span></span><br><span class="line"> creatorId <span class="built_in">integer</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">REFERENCES</span> TUsers (<span class="keyword">id</span>) <span class="keyword">match</span> simple <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">SET</span> <span class="literal">NULL</span> <span class="comment">-- 活动创建的用户id  </span></span><br><span class="line"> )<span class="keyword">WITH</span> ( OIDS=<span class="literal">FALSE</span> );</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> TProject_creator_idx <span class="keyword">ON</span> TProject( creatorId );</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 新增测试数据 - 插入指定列</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TUsers(realname) <span class="keyword">values</span>(<span class="string">'test1'</span>);</span><br><span class="line"><span class="comment">-- 新增测试数据 - 插入所有列</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TUsers <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">'test2'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TUsers <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">'test3'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TProject <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'测试项目1'</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TProject <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">'测试项目2'</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TProject <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">'测试项目3'</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 通过用户id获得用户JSON对象</span></span><br><span class="line"><span class="keyword">WITH</span> myInfo <span class="keyword">AS</span> (<span class="keyword">select</span> a.id,a.realName <span class="keyword">from</span> TUsers a <span class="keyword">where</span> a.id = <span class="number">1</span> )</span><br><span class="line"><span class="keyword">SELECT</span> row_to_json(b.*) <span class="keyword">from</span> myInfo b;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 数据库返回多行数据：如获取用户参与的项目</span></span><br><span class="line"><span class="keyword">WITH</span> myProjects <span class="keyword">AS</span> (<span class="keyword">select</span> a.id,a.title <span class="keyword">from</span> TProject a <span class="keyword">where</span> a.creatorId = <span class="number">1</span>)</span><br><span class="line"><span class="keyword">SELECT</span> row_to_json(b.*) <span class="keyword">from</span></span><br><span class="line">(<span class="keyword">SELECT</span> array_to_json(<span class="built_in">array</span>(<span class="keyword">select</span> row_to_json(myProjects.*)  <span class="keyword">from</span> myProjects),<span class="literal">false</span>) <span class="keyword">as</span> myProjects) b</span><br></pre></td></tr></table></figure>
+<h2 id="json字段放置数组对象"><a href="#json字段放置数组对象" class="headerlink" title="json字段放置数组对象"></a>json字段放置数组对象</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 创建演出活动表</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> TActivity <span class="keyword">CASCADE</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TActivity (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">bigint</span>   PRIMARY <span class="keyword">KEY</span>,<span class="comment">-- 活动id</span></span><br><span class="line"> title <span class="built_in">character</span> <span class="built_in">varying</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,<span class="comment">-- 活动名称  </span></span><br><span class="line"> pricepackage jsonb <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="comment">-- 价格套餐,格式如：[&#123;"packagename":"成人票","price":25,"stock":1000&#125;,&#123;"packagename":"儿童票（12岁以下）","price":15,"stock":1000&#125;]</span></span><br><span class="line">)<span class="keyword">WITH</span> (</span><br><span class="line"> OIDS=<span class="literal">FALSE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 新增-插入测试数据到演出活动表</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TActivity <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'演出活动标题1'</span>,<span class="string">'[&#123;"packagename":"成人票","price":189,"stock":100&#125;,&#123;"packagename":"儿童票（12岁以下）","price":66,"stock":20&#125;,&#123;"packagename":"成人+儿童套票","price":128,"stock":10&#125;]'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TActivity <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">'演出活动标题2'</span>,<span class="string">'[&#123;"packagename":"成人票","price":189,"stock":100&#125;,&#123;"packagename":"儿童票（5-15岁）","price":66,"stock":20&#125;,&#123;"packagename":"成人+儿童套票","price":128,"stock":10&#125;]'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TActivity <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">'演出活动标题3'</span>,<span class="string">'[&#123;"packagename":"成人票","price":99,"stock":100&#125;,&#123;"packagename":"儿童票（3-5岁）","price":58,"stock":20&#125;,&#123;"packagename":"成人+儿童套票","price":99,"stock":10&#125;]'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 更新-插入对象到票价json数组中的最后</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage = pricepackage || <span class="string">'&#123;"packagename":"后补票","price":157,"stock":99&#125;'</span> <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 更新-插入对象到票价json数组中的最前</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage =<span class="string">'&#123;"packagename":"前补票","price":1237,"stock":99&#125;'</span> || pricepackage  <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 更新-插入对象到票价json数组中，-1表示从数组后面数第一个，true表示在该元素的后面插入。</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage = jsonb_insert(pricepackage, <span class="string">'&#123;-1&#125;'</span>, <span class="string">'&#123;"packagename":"最后成人票新增100","price":189,"stock":100&#125;'</span>, <span class="literal">true</span>)    <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 更新-更新json数组中指定对象，fasle代表从前面数起</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage = jsonb_set(pricepackage,<span class="string">'&#123;1&#125;'</span>,<span class="string">'&#123;"price":78779,"packagename":"乘车票"&#125;'</span>,<span class="literal">false</span>) <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 更新-更新json数组中指定对象的某一属性，fasle代表从前面数起</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage = jsonb_set(pricepackage,<span class="string">'&#123;1,packagename&#125;'</span>,<span class="string">'"奥特曼的票"'</span>,<span class="literal">false</span>) <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 更新-删除json数组中指定index的对象</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage = pricepackage - <span class="number">0</span> <span class="keyword">where</span> <span class="keyword">id</span> =<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 更新-删除json数组中指定index的对象的某一属性</span></span><br><span class="line"><span class="keyword">update</span> tactivity <span class="keyword">set</span> pricepackage = pricepackage <span class="comment">#- '&#123;0,price&#125;' where id =1;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查找-字符串匹配-找出条件等于“packagename = 儿童票（3-5岁）”的那些活动</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tactivity a <span class="keyword">where</span> a.pricepackage @&gt; <span class="string">'[&#123;"packagename":"儿童票（3-5岁）"&#125;]'</span>::jsonb;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tactivity a <span class="keyword">where</span> a.pricepackage @&gt; <span class="string">'[&#123;"packagename":"成人票"&#125;]'</span>;</span><br><span class="line"><span class="comment">-- 查找-数值比较-找出数组中第0个对象的price &lt; 100的那些活动</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tactivity a <span class="keyword">where</span> <span class="keyword">cast</span>(a.pricepackage-&gt;<span class="number">0</span>-&gt;&gt;<span class="string">'price'</span> <span class="keyword">as</span> <span class="built_in">int</span>)&lt;<span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查找-数值比较-找出数组中所有对象的price &lt; 100的那些活动</span></span><br><span class="line"><span class="comment">-- 1. 先把jsonb中的值取出来</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">type</span> json_type_pricepackage <span class="keyword">AS</span> (packagename <span class="built_in">text</span>, price <span class="built_in">numeric</span>, stock <span class="built_in">numeric</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> , (jsonb_populate_recordset(<span class="literal">null</span>::json_type_pricepackage, pricepackage)).* <span class="keyword">FROM</span> tactivity;</span><br><span class="line"><span class="comment">-- 2. 再做过滤获得结果</span></span><br><span class="line"><span class="keyword">WITH</span> rows_filtered <span class="keyword">AS</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> (</span><br><span class="line">		<span class="keyword">SELECT</span> <span class="keyword">id</span> ,(jsonb_populate_recordset(<span class="literal">null</span>::json_type_pricepackage, pricepackage)).* <span class="keyword">FROM</span> tactivity </span><br><span class="line">	) a <span class="keyword">WHERE</span> price &gt; <span class="number">150</span></span><br><span class="line">)<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> TActivity a <span class="keyword">WHERE</span> a.id <span class="keyword">IN</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> rows_filtered)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> TActivity;</span><br></pre></td></tr></table></figure>
+<h2 id="使用json字段做图片应用"><a href="#使用json字段做图片应用" class="headerlink" title="使用json字段做图片应用"></a>使用json字段做图片应用</h2><p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190602224652.png" alt></p>
+<p><img src="http://blog.sciencenet.cn/data/attachment/album/201610/14/141149uunnqibz9ntir3qi.png" alt></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 创建照片识别活动表（把照片识别看作一次活动，一次活动可能同时识别多张照片）</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> TPActivity <span class="keyword">CASCADE</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TPActivity (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">DEFAULT</span> <span class="keyword">nextval</span>(<span class="string">'jsontest_uuid_seq'</span>) PRIMARY <span class="keyword">KEY</span>,<span class="comment">-- 活动id,全局唯一性，用于外键关联</span></span><br><span class="line"> title <span class="built_in">character</span> <span class="built_in">varying</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,<span class="comment">-- 活动名称，如“计算所喊你回家了”</span></span><br><span class="line"> pics <span class="built_in">bigint</span> <span class="built_in">ARRAY</span> <span class="comment">-- 照片id数组  </span></span><br><span class="line">)<span class="keyword">WITH</span> (</span><br><span class="line"> OIDS=<span class="literal">FALSE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建照片表</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> TPIC <span class="keyword">CASCADE</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TPIC (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">DEFAULT</span> <span class="keyword">nextval</span>(<span class="string">'jsontest_uuid_seq'</span>) PRIMARY <span class="keyword">KEY</span>,<span class="comment">-- 活动id,全局唯一性，用于外键关联</span></span><br><span class="line"> picUrl <span class="built_in">character</span> <span class="built_in">varying</span>(<span class="number">256</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,<span class="comment">-- 照片</span></span><br><span class="line"> persons jsonb <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="comment">-- 照片里的人名、电话等，格式为：[&#123;"position":"前1排左1","name":"张晓陆","phone":"18910180100","city":"济南","organization":"中科院计算所","attendanceYear":"2012","graduationYear":"2016"&#125;,&#123;"position":"前1排左2","name":"张晓陆","phone":"18910180100","organization":"中科院计算所","attendanceYear":"2012","graduationYear":"2016"&#125;]</span></span><br><span class="line">)<span class="keyword">WITH</span> (</span><br><span class="line"> OIDS=<span class="literal">FALSE</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入测试数据</span></span><br><span class="line"><span class="comment">-- Table: TPActivity</span></span><br><span class="line"><span class="comment">-- 照片识别活动表（把照片识别看作一次活动，一次活动可能同时识别多张照片）</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TPActivity <span class="keyword">values</span>(<span class="number">18</span>,<span class="string">'28级4班的你,还记得他/她吗？'</span>,<span class="string">'&#123;109, 110&#125;'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Table: TPIC</span></span><br><span class="line"><span class="comment">-- 照片表</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TPIC <span class="keyword">values</span>(<span class="number">109</span>,<span class="string">'/img/userupload/XZZX-90-1.2.png'</span>,</span><br><span class="line"><span class="string">'[&#123;"position":"前排左1","name":"","phone":"","city":"","organization":"","attendanceYear":"","graduationYear":""&#125;,</span></span><br><span class="line"><span class="string">&#123;"position":"前排左2","name":"","phone":"","city":"","organization":"","attendanceYear":"","graduationYear":""&#125;</span></span><br><span class="line"><span class="string">]'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> TPIC <span class="keyword">values</span>(<span class="number">110</span>,<span class="string">'/img/userupload/XZZX-90-2.2.png'</span>,</span><br><span class="line"><span class="string">'[&#123;"position":"前排左1","name":"","phone":"","city":"","organization":"","attendanceYear":"","graduationYear":""&#125;,</span></span><br><span class="line"><span class="string">&#123;"position":"前排左2","name":"","phone":"","city":"","organization":"","attendanceYear":"","graduationYear":""&#125;,</span></span><br><span class="line"><span class="string">&#123;"position":"前排左3","name":"","phone":"","city":"","organization":"","attendanceYear":"","graduationYear":""&#125;</span></span><br><span class="line"><span class="string">]'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询-所有的和活动相关的图片</span></span><br><span class="line"><span class="keyword">WITH</span> allPicsInOneActivity <span class="keyword">AS</span> (<span class="keyword">select</span> a.title,b.id,b.picurl,b.persons <span class="keyword">from</span> TPActivity a, TPIC b <span class="keyword">where</span> a.id =<span class="number">18</span> <span class="keyword">and</span> b.id = <span class="keyword">any</span> ( a.pics) )</span><br><span class="line"><span class="keyword">select</span> jsonb_pretty(to_jsonb(row_to_json(b.*))) <span class="keyword">from</span></span><br><span class="line">(<span class="keyword">SELECT</span> array_to_json(<span class="built_in">array</span>(<span class="keyword">select</span> row_to_json(allPicsInOneActivity.*) <span class="keyword">from</span> allPicsInOneActivity),<span class="literal">false</span>) <span class="keyword">as</span> activityallpics) b</span><br></pre></td></tr></table></figure>
+<p>切换jupyter内的python版本</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/06/08/使用portainer管理docker主机/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2019/05/27/持续集成工具jenkins/" class="next-post btn btn-default" title=''>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            </span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#postgres数据库实践"><span class="toc-text">postgres数据库实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用操作"><span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json字段放置数组对象"><span class="toc-text">json字段放置数组对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用json字段做图片应用"><span class="toc-text">使用json字段做图片应用</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

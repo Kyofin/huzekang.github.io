@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="研发团队GIT开发流程新人学习指南
+[TOC]
+本文定位于为使用GIT标准分支开发流程的开发团队新人提供一份参考指南，其中的内容都是我们公司在研发团队初创时所遵循的一些开发流程标准，经过近一年的...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/03/20</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="研发团队GIT开发流程新人学习指南"><a href="#研发团队GIT开发流程新人学习指南" class="headerlink" title="研发团队GIT开发流程新人学习指南"></a>研发团队GIT开发流程新人学习指南</h1><p><img src="https://oayrssjpa.qnssl.com/2017-01-24-FullSizeRender.jpg" alt="FullSizeRende"></p>
+<p>[TOC]</p>
+<p>本文定位于为使用GIT标准分支开发流程的开发团队新人提供一份参考指南，其中的内容都是<a href="http://yunsomgroup.com/" target="_blank" rel="noopener">我们公司</a>在研发团队初创时所遵循的一些开发流程标准，经过近一年的实践，虽说还有很多不足，但是随着团队经验的丰富和人员的扩张，我会适时地更新本文，分享我们在使用GIT开发流程中遇到的问题和解决方案。</p>
+<p>本文将会持续修正和更新，最新内容请参考我的 <a href="https://github.com/mylxsw" target="_blank" rel="noopener">GITHUB</a> 上的 <a href="https://github.com/mylxsw/growing-up" target="_blank" rel="noopener">程序猿成长计划</a> 项目，欢迎 Star，更多精彩内容请 <a href="https://github.com/mylxsw" target="_blank" rel="noopener">follow me</a>。</p>
+<h2 id="分支流程说明"><a href="#分支流程说明" class="headerlink" title="分支流程说明"></a>分支流程说明</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><img src="https://oayrssjpa.qnssl.com/2017-01-24-14724616710606.jpg" alt></p>
+<p>项目中长期存在的两个分支</p>
+<ul>
+<li><code>master</code>：主分支，负责记录上线版本的迭代，该分支代码与线上代码是完全一致的。</li>
+<li><code>develop</code>：开发分支，该分支记录相对稳定的版本，所有的feature分支和bugfix分支都从该分支创建。</li>
+</ul>
+<p>其它分支为短期分支，其完成功能开发之后需要删除</p>
+<ul>
+<li><code>feature/*</code>：特性（功能）分支，用于开发新的功能，不同的功能创建不同的功能分支，功能分支开发完成并自测通过之后，需要合并到 <strong>develop</strong> 分支，之后删除该分支。</li>
+<li><code>bugfix/*</code>：bug修复分支，用于修复不紧急的bug，普通bug均需要创建bugfix分支开发，开发完成自测没问题后合并到 <strong>develop</strong> 分支后，删除该分支。</li>
+<li><code>release/*</code>：发布分支，用于代码上线准备，该分支从<strong>develop</strong>分支创建，创建之后由测试同学发布到测试环境进行测试，测试过程中发现bug需要开发人员在该release分支上进行bug修复，所有bug修复完后，在上线之前，需要合并该release分支到<strong>master</strong>分支和<strong>develop</strong>分支。</li>
+<li><code>hotfix/*</code>：紧急bug修复分支，该分支只有在紧急情况下使用，从<strong>master</strong>分支创建，用于紧急修复线上bug，修复完成后，需要合并该分支到<strong>master</strong>分支以便上线，同时需要再合并到<strong>develop</strong>分支。</li>
+</ul>
+<h3 id="必读文章"><a href="#必读文章" class="headerlink" title="必读文章"></a>必读文章</h3><p><a href="http://www.open-open.com/lib/view/open1461324562769.html" target="_blank" rel="noopener">团队中的 Git 实践</a><br><a href="http://www.open-open.com/lib/view/open1451353135339.html" target="_blank" rel="noopener">Git 在团队中的最佳实践–如何正确使用Git Flow</a></p>
+<h2 id="分支命令规范"><a href="#分支命令规范" class="headerlink" title="分支命令规范"></a>分支命令规范</h2><h3 id="特性（功能）分支"><a href="#特性（功能）分支" class="headerlink" title="特性（功能）分支"></a>特性（功能）分支</h3><p>功能分支的分支名称应该为能够准确描述该功能的英文简要表述</p>
+<pre><code>feature/分支名称
+</code></pre><p>例如，开发的功能为 <em>新增商品到物料库</em>，则可以创建名称为 <code>feature/material-add</code>的分支。</p>
+<h3 id="bug修复分支、紧急bug修复分支"><a href="#bug修复分支、紧急bug修复分支" class="headerlink" title="bug修复分支、紧急bug修复分支"></a>bug修复分支、紧急bug修复分支</h3><p>bug修复分支的分支名称可以为Jira中bug代码或者是描述该bug的英文简称</p>
+<pre><code>bugfix/分支名称
+hotfix/分支名称
+</code></pre><p>比如，修复的bug在jira中代号为<strong>MATERIAL-1</strong>，则可以创建一个名为<code>bugfix/MATERIAL-1</code>的分支。</p>
+<h3 id="release分支"><a href="#release分支" class="headerlink" title="release分支"></a>release分支</h3><p>release分支为预发布分支，命名为本次发布的主要功能英文简称</p>
+<pre><code>release/分支名称
+</code></pre><p>比如，本次上线物料库新增的功能，则分支名称可以为<code>release/material-add</code>。</p>
+<h2 id="常用操作命令简介"><a href="#常用操作命令简介" class="headerlink" title="常用操作命令简介"></a>常用操作命令简介</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>基本命令这里就不多说了，基本跟以前一样，唯一的区别是注意分支是从哪里拉去的以及分支的命名规范。涉及到的命令主要包含以下，大家自己学习：</p>
+<ul>
+<li>git commit </li>
+<li>git add [–all]</li>
+<li>git push</li>
+<li>git pull</li>
+<li>git branch [-d]</li>
+<li>git merge</li>
+<li>git cherry-pick</li>
+<li>git checkout [-b] BRANCH_NAME</li>
+<li>git stash</li>
+</ul>
+<p>分支操作参考 <a href="http://b.aicode.cc/git/2015/09/10/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86.html" target="_blank" rel="noopener">Git常用操作-分支管理</a></p>
+<h3 id="使用git-flow简化操作"><a href="#使用git-flow简化操作" class="headerlink" title="使用git flow简化操作"></a>使用<code>git flow</code>简化操作</h3><p><code>git flow</code>是git的一个插件，可以极大程度的简化执行git标准分支流程的操作，可以在<a href="https://github.com/petervanderdoes/gitflow-avh" target="_blank" rel="noopener">gitflow-avh</a>安装。</p>
+<blockquote>
+<p>如果是windows下通过安装包安装的git，则该插件默认已经包含，可以直接使用。</p>
+</blockquote>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>使用<code>git flow init</code>初始化项目</p>
+<pre><code>$ git flow init
+
+Which branch should be used for bringing forth production releases?
+   - develop
+   - feature-fulltext
+   - feature-vender
+   - master
+Branch name for production releases: [master]
+
+Which branch should be used for integration of the &quot;next release&quot;?
+   - develop
+   - feature-fulltext
+   - feature-vender
+Branch name for &quot;next release&quot; development: [develop]
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/]
+Bugfix branches? [bugfix/]
+Release branches? [release/]
+Hotfix branches? [hotfix/]
+Support branches? [support/]
+Version tag prefix? []
+Hooks and filters directory? [/Users/mylxsw/codes/work/e-business-3.0/.git/hooks]
+</code></pre><h4 id="功能分支"><a href="#功能分支" class="headerlink" title="功能分支"></a>功能分支</h4><pre><code>git flow feature
+git flow feature start &lt;name&gt;
+git flow feature finish &lt;name&gt;
+git flow feature delete &lt;name&gt;
+
+git flow feature publish &lt;name&gt;
+git flow feature track &lt;name&gt;
+</code></pre><p>功能分支使用例子：</p>
+<pre><code>$ git flow feature start material-add
+Switched to a new branch &apos;feature/material-add&apos;
+
+Summary of actions:
+- A new branch &apos;feature/material-add&apos; was created, based on &apos;develop&apos;
+- You are now on branch &apos;feature/material-add&apos;
+
+Now, start committing on your feature. When done, use:
+
+     git flow feature finish material-add
+
+$ git status
+On branch feature/material-add
+nothing to commit, working directory clean
+$ git flow feature publish
+Total 0 (delta 0), reused 0 (delta 0)
+To http://dev.oss.yunsom.cn:801/yunsom/e-business-3.0.git
+ * [new branch]      feature/material-add -&gt; feature/material-add
+Branch feature/material-add set up to track remote branch feature/material-add from origin.
+Already on &apos;feature/material-add&apos;
+Your branch is up-to-date with &apos;origin/feature/material-add&apos;.
+
+Summary of actions:
+- The remote branch &apos;feature/material-add&apos; was created or updated
+- The local branch &apos;feature/material-add&apos; was configured to track the remote branch
+- You are now on branch &apos;feature/material-add&apos;
+
+$ vim README.md
+$ git add --all
+$ git commit -m &quot;modify readme file &quot;
+[feature/material-add 7235bd4] modify readme file
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 303 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To http://dev.oss.yunsom.cn:801/yunsom/e-business-3.0.git
+   0d4fb8f..7235bd4  feature/material-add -&gt; feature/material-add
+$ git flow feature finish
+Switched to branch &apos;develop&apos;
+Your branch is up-to-date with &apos;origin/develop&apos;.
+Updating 0d4fb8f..7235bd4
+Fast-forward
+ README.md | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+To http://dev.oss.yunsom.cn:801/yunsom/e-business-3.0.git
+ - [deleted]         feature/material-add
+Deleted branch feature/material-add (was 7235bd4).
+
+Summary of actions:
+- The feature branch &apos;feature/material-add&apos; was merged into &apos;develop&apos;
+- Feature branch &apos;feature/material-add&apos; has been locally deleted; it has been remotely deleted from &apos;origin&apos;
+- You are now on branch &apos;develop&apos;
+
+$ git branch
+* develop
+  feature-fulltext
+  feature-vender
+  master
+</code></pre><h4 id="预发布分支"><a href="#预发布分支" class="headerlink" title="预发布分支"></a>预发布分支</h4><pre><code>git flow release
+git flow release start &lt;release&gt; [&lt;base&gt;]
+git flow release finish &lt;release&gt;
+git flow release delete &lt;release&gt;
+</code></pre><h4 id="hotfix分支"><a href="#hotfix分支" class="headerlink" title="hotfix分支"></a>hotfix分支</h4><pre><code>git flow hotfix
+git flow hotfix start &lt;release&gt; [&lt;base&gt;]
+git flow hotfix finish &lt;release&gt;
+git flow hotfix delete &lt;release&gt;
+</code></pre><h4 id="git-flow-备忘清单"><a href="#git-flow-备忘清单" class="headerlink" title="git-flow 备忘清单"></a>git-flow 备忘清单</h4><p>参考<a href="http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html" target="_blank" rel="noopener">git-flow 备忘清单</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果上面内容太多记不住，也没有关系，作为开发人员，刚开始的时候只要知道以下几点就足够了，其它的可以在碰到的时候再深入学习：</p>
+<ul>
+<li>所有的新功能开发，bug修复（非紧急）都要从<code>develop</code>分支拉取新的分支进行开发，开发完成自测没有问题再合并到<code>develop</code>分支</li>
+<li><code>release</code>分支发布到测试环境，由开发人员创建<code>release</code>分支（需要测试人员提出需求）并发布到测试环境，如果测试过程中发现bug，需要开发人员<code>track</code>到该release分支修复bug，上线前需要测试人员提交<code>merge request</code>到<code>master</code>分支，准备上线，同时需要合并回<code>develop</code>分支。</li>
+<li>只有紧急情况下才允许从<code>master</code>上拉取<code>hotfix</code>分支，<code>hotfix</code>分支需要最终同时合并到<code>develop</code>和<code>master</code>分支（共两次merge操作）</li>
+<li>除了<code>master</code>和<code>develop</code>分支，其它分支在开发完成后都要删除</li>
+</ul>
+<p>本文将会持续修正和更新，最新内容请参考我的 <a href="https://github.com/mylxsw" target="_blank" rel="noopener">GITHUB</a> 上的 <a href="https://github.com/mylxsw/growing-up" target="_blank" rel="noopener">程序猿成长计划</a> 项目，欢迎 Star，更多精彩内容请 <a href="https://github.com/mylxsw" target="_blank" rel="noopener">follow me</a>。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/03/20/Linux实现端口转发/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2019/03/20/三十分钟学会AWK/" class="next-post btn btn-default" title=''>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            </span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#研发团队GIT开发流程新人学习指南"><span class="toc-text">研发团队GIT开发流程新人学习指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分支流程说明"><span class="toc-text">分支流程说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必读文章"><span class="toc-text">必读文章</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支命令规范"><span class="toc-text">分支命令规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性（功能）分支"><span class="toc-text">特性（功能）分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug修复分支、紧急bug修复分支"><span class="toc-text">bug修复分支、紧急bug修复分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#release分支"><span class="toc-text">release分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用操作命令简介"><span class="toc-text">常用操作命令简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本操作"><span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用git-flow简化操作"><span class="toc-text">使用git flow简化操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#功能分支"><span class="toc-text">功能分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#预发布分支"><span class="toc-text">预发布分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hotfix分支"><span class="toc-text">hotfix分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-flow-备忘清单"><span class="toc-text">git-flow 备忘清单</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

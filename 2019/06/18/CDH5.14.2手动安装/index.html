@@ -1,0 +1,638 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="[TOC]
+CDH5.14.2手动安装下载
+
+
+软件
+版本
+下载地址
+
+
+
+
+jdk
+jdk-8u172-linux-x64
+点击下载
+
+
+hadoop
+hadoop-2.6.0-cdh5.14...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/06/18</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>[TOC]</p>
+<h1 id="CDH5-14-2手动安装"><a href="#CDH5-14-2手动安装" class="headerlink" title="CDH5.14.2手动安装"></a>CDH5.14.2手动安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>版本</th>
+<th>下载地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jdk</td>
+<td>jdk-8u172-linux-x64</td>
+<td><a href="http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>hadoop</td>
+<td>hadoop-2.6.0-cdh5.14.2</td>
+<td><a href="http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.14.2.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>zookeeeper</td>
+<td>zookeeper-3.4.5-cdh5.14.2</td>
+<td><a href="http://archive.cloudera.com/cdh5/cdh/5/zookeeper-3.4.5-cdh5.14.2.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>hbase</td>
+<td>hbase-1.2.0-cdh5.14.2</td>
+<td><a href="http://archive.cloudera.com/cdh5/cdh/5/hbase-1.2.0-cdh5.14.2.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>hive</td>
+<td>hive-1.1.0-cdh5.14.2</td>
+<td><a href="http://archive.cloudera.com/cdh5/cdh/5/hive-1.1.0-cdh5.14.2.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>hue</td>
+<td>hue-3.9.0-cdh5.14.2</td>
+<td><a href="http://archive.cloudera.com/cdh5/cdh/5/hue-3.9.0-cdh5.14.2.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>presto</td>
+<td>presto-server-0.221</td>
+<td><a href="https://repo1.maven.org/maven2/com/facebook/presto/presto-server/0.221/presto-server-0.221.tar.gz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+<tr>
+<td>kafka</td>
+<td>kafka_2.12-2.1.1</td>
+<td><a href="http://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.1.1/kafka_2.12-2.1.1.tgz" target="_blank" rel="noopener">点击下载</a></td>
+</tr>
+</tbody>
+</table>
+<p>注： CDH5的所有软件可以在此下载：<a href="http://archive.cloudera.com/cdh5/cdh/5/" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/</a></p>
+<h2 id="预备环境"><a href="#预备环境" class="headerlink" title="预备环境"></a>预备环境</h2><ol>
+<li><p>jdk8</p>
+</li>
+<li><p>关闭防火墙</p>
+</li>
+<li><p>设置hostname，设置hosts文件</p>
+<p><strong>设置成hadoop0</strong></p>
+</li>
+<li><p>设置ssh</p>
+<p>Now check that you can ssh to the localhost without a passphrase:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure>
+<p>If you cannot ssh to localhost without a passphrase, execute the following commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t dsa -P &apos;&apos; -f ~/.ssh/id_dsa</span><br><span class="line">$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Hdfs"><a href="#Hdfs" class="headerlink" title="Hdfs"></a>Hdfs</h2><h3 id="参考官方文档"><a href="#参考官方文档" class="headerlink" title="参考官方文档"></a>参考官方文档</h3><p><a href="http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.14.2/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.14.2/hadoop-project-dist/hadoop-common/SingleCluster.html</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>etc/hadoop/core-site.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 本机默认存储路径：/tmp/hadoop-huzekang/dfs/name --&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 防止重启电脑临时文件删除清楚所有hdfs保存的文件,该目录需手动创建 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Users/huzekang/opt/hadoop-cdh/data/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>etc/hadoop/hdfs-site.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>etc/hadoop/hadoop-env.sh </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># The java implementation to use.</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_211-amd64/</span><br></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>The following instructions are to run a <strong>MapReduce job locally</strong>. If you want to execute a job on YARN, see <a href="http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.14.2/hadoop-project-dist/hadoop-common/SingleCluster.html#YARN_on_Single_Node" target="_blank" rel="noopener">YARN on Single Node</a>.</p>
+<ol>
+<li><p>Format the filesystem:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190618172845.png" alt></p>
+</li>
+<li><p>Start NameNode daemon and DataNode daemon:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
+<p>The hadoop daemon log output is written to the <code>$HADOOP_LOG_DIR</code> directory (defaults to <code>$HADOOP_HOME/logs</code>).</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190618172745.png" alt></p>
+</li>
+<li><p>Browse the web interface for the NameNode; by default it is available at:</p>
+<ul>
+<li><p>NameNode - <code>http://localhost:50070/</code></p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623160757.png" alt></p>
+</li>
+</ul>
+</li>
+<li><p>Make the HDFS directories required to execute MapReduce jobs:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hdfs dfs -mkdir /user</span><br><span class="line">$ bin/hdfs dfs -mkdir /user/&lt;username&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Copy the README.txt into the distributed filesystem:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hdfs dfs -put README.txt /user/&lt;username&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run some of the examples provided:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.0-cdh5.14.2.jar grep /user/huzekang/README.txt /user/huzekang/output &apos;dfs[a-z.]+&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Examine the output files:</p>
+<p>Copy the output files <strong>from the distributed filesystem</strong> to the <strong>local filesystem</strong> and examine them:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hdfs dfs -get /user/huzekang/output output</span><br><span class="line">$ ll output/</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<p>View the output files on the distributed filesystem:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -ls /user/huzekang/output</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>When you’re done, stop the daemons with:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="YARN-on-Single-Node"><a href="#YARN-on-Single-Node" class="headerlink" title="YARN on Single Node"></a>YARN on Single Node</h2><p>You can run a MapReduce job on YARN in a <strong>pseudo-distributed mode</strong> by setting a few parameters and running ResourceManager daemon and NodeManager daemon in addition.</p>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>The following instructions assume that 1. ~ 4. steps of <a href="http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.14.2/hadoop-project-dist/hadoop-common/SingleCluster.html#Execution" target="_blank" rel="noopener">the above instructions</a> are already executed.</p>
+<ol>
+<li><p>Configure parameters as follows:</p>
+<p>etc/hadoop/mapred-site.xml:</p>
+<p><strong>如果没有则复制它的template创建一个</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>etc/hadoop/yarn-site.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h3><ol>
+<li><p>Start ResourceManager daemon and NodeManager daemon:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Browse the web interface for the ResourceManager; by default it is available at:</p>
+<ul>
+<li><p>ResourceManager - <code>http://localhost:8088/</code></p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190618175325.png" alt></p>
+</li>
+</ul>
+</li>
+<li><p>Run a MapReduce job.</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190618175408.png" alt></p>
+</li>
+<li><p>When you’re done, stop the daemons with:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sbin/stop-yarn.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>设置了yarn启动作业之后就不能再使用local模式了，所以如果关闭yarn再启动作业就会出现下面提示。如果想用回local模式，可以把上面yarn的配置注释掉即可。</strong></p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190618180037.png" alt></p>
+<h2 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h2><h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p><a href="http://archive.cloudera.com/cdh5/cdh/5/zookeeper-3.4.5-cdh5.14.2/zookeeperStarted.html#sc_Prerequisites" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/zookeeper-3.4.5-cdh5.14.2/zookeeperStarted.html#sc_Prerequisites</a></p>
+<h3 id="Standalone-Operation安装"><a href="#Standalone-Operation安装" class="headerlink" title="Standalone Operation安装"></a>Standalone Operation安装</h3><p>Setting up a ZooKeeper server in standalone mode is straightforward. The server is contained in a single JAR file, so installation consists of creating a configuration.</p>
+<p>Once you’ve downloaded a stable ZooKeeper release unpack it and cd to the root</p>
+<p>To start ZooKeeper you need a configuration file. Here is a sample, create it in <strong>conf/zoo.cfg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">dataDir=/Users/huzekang/opt/hadoop-cdh/data/zookeeper</span><br><span class="line">clientPort=2181</span><br></pre></td></tr></table></figure>
+<p>This file can be called anything, but for the sake of this discussion call it <strong>conf/zoo.cfg</strong>. Change the value of <strong>dataDir</strong> to specify an existing (empty to start with) directory. Here are the meanings for each of the fields:</p>
+<ul>
+<li><p><strong>tickTime</strong></p>
+<p>the basic time unit in milliseconds used by ZooKeeper. It is used to do heartbeats and the minimum session timeout will be twice the tickTime.</p>
+</li>
+<li><p><strong>dataDir</strong></p>
+<p>the location to store the in-memory database snapshots and, unless specified otherwise, the transaction log of updates to the database.</p>
+</li>
+<li><p><strong>clientPort</strong></p>
+<p>the port to listen for client connections</p>
+</li>
+</ul>
+<p>Now that you created the configuration file, you can <strong>start ZooKeeper</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+<p>启动的是一个java进程。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626145350.png" alt></p>
+<p>ZooKeeper logs messages using log4j – more detail available in the <a href="http://archive.cloudera.com/cdh5/cdh/5/zookeeper-3.4.5-cdh5.14.2/zookeeperProgrammers.html#Logging" target="_blank" rel="noopener">Logging</a> section of the Programmer’s Guide. You will see log messages coming to the console (default) and/or a log file depending on the log4j configuration.</p>
+<p>The steps outlined here run ZooKeeper in standalone mode. There is no replication, so if ZooKeeper process fails, the service will go down. This is fine for most development situations, but to run ZooKeeper in replicated mode, please see <a href="http://archive.cloudera.com/cdh5/cdh/5/zookeeper-3.4.5-cdh5.14.2/zookeeperStarted.html#sc_RunningReplicatedZooKeeper" target="_blank" rel="noopener">Running Replicated ZooKeeper</a>.</p>
+<h3 id="Managing-ZooKeeper-Storage"><a href="#Managing-ZooKeeper-Storage" class="headerlink" title="Managing ZooKeeper Storage"></a>Managing ZooKeeper Storage</h3><p>For long running production systems ZooKeeper storage must be managed externally (dataDir and logs). See the section on <a href="http://archive.cloudera.com/cdh5/cdh/5/zookeeper-3.4.5-cdh5.14.2/zookeeperAdmin.html#sc_maintenance" target="_blank" rel="noopener">maintenance</a> for more details.</p>
+<h3 id="Connecting-to-ZooKeeper"><a href="#Connecting-to-ZooKeeper" class="headerlink" title="Connecting to ZooKeeper"></a>Connecting to ZooKeeper</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zkCli.sh -server 127.0.0.1:2181</span><br></pre></td></tr></table></figure>
+<p>This lets you perform simple, file-like operations.</p>
+<p>启动的是一个java进程。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626145423.png" alt></p>
+<p>Once you have connected, you should see something like:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Connecting to localhost:2181</span><br><span class="line">log4j:WARN No appenders could be found for logger (org.apache.zookeeper.ZooKeeper).</span><br><span class="line">log4j:WARN Please initialize the log4j system properly.</span><br><span class="line">Welcome to ZooKeeper!</span><br><span class="line">JLine support is enabled</span><br><span class="line">[zkshell: 0]</span><br></pre></td></tr></table></figure>
+<p>From the shell, type help to get a listing of commands that can be executed from the client, as in:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 0] help</span><br><span class="line">ZooKeeper host:port cmd args</span><br><span class="line">        get path [watch]</span><br><span class="line">        ls path [watch]</span><br><span class="line">        set path data [version]</span><br><span class="line">        delquota [-n|-b] path</span><br><span class="line">        quit</span><br><span class="line">        printwatches on|off</span><br><span class="line">        createpath data acl</span><br><span class="line">        stat path [watch]</span><br><span class="line">        listquota path</span><br><span class="line">        history</span><br><span class="line">        setAcl path acl</span><br><span class="line">        getAcl path</span><br><span class="line">        sync path</span><br><span class="line">        redo cmdno</span><br><span class="line">        addauth scheme auth</span><br><span class="line">        delete path [version]</span><br><span class="line">        setquota -n|-b val path</span><br></pre></td></tr></table></figure>
+<p>From here, you can try a few simple commands to get a feel for this simple command line interface. First, start by issuing the list command, as in ls, yielding:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 8] ls /</span><br><span class="line">[zookeeper]</span><br></pre></td></tr></table></figure>
+<p>Next, create a new znode by running create /zk_test my_data. This creates a new znode and associates the string “my_data” with the node. You should see:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 9] create /zk_test my_data</span><br><span class="line">Created /zk_test</span><br></pre></td></tr></table></figure>
+<p>Issue another ls / command to see what the directory looks like:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 11] ls /</span><br><span class="line">[zookeeper, zk_test]</span><br></pre></td></tr></table></figure>
+<p>Notice that the zk_test directory has now been created.</p>
+<p>Next, verify that the data was associated with the znode by running the get command, as in:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 12] get /zk_test</span><br><span class="line">my_data</span><br><span class="line">cZxid = 5</span><br><span class="line">ctime = Fri Jun 05 13:57:06 PDT 2009</span><br><span class="line">mZxid = 5</span><br><span class="line">mtime = Fri Jun 05 13:57:06 PDT 2009</span><br><span class="line">pZxid = 5</span><br><span class="line">cversion = 0</span><br><span class="line">dataVersion = 0</span><br><span class="line">aclVersion = 0</span><br><span class="line">ephemeralOwner = 0</span><br><span class="line">dataLength = 7</span><br><span class="line">numChildren = 0</span><br></pre></td></tr></table></figure>
+<p>We can change the data associated with zk_test by issuing the set command, as in:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 14] set /zk_test junk</span><br><span class="line">cZxid = 5</span><br><span class="line">ctime = Fri Jun 05 13:57:06 PDT 2009</span><br><span class="line">mZxid = 6</span><br><span class="line">mtime = Fri Jun 05 14:01:52 PDT 2009</span><br><span class="line">pZxid = 5</span><br><span class="line">cversion = 0</span><br><span class="line">dataVersion = 1</span><br><span class="line">aclVersion = 0</span><br><span class="line">ephemeralOwner = 0</span><br><span class="line">dataLength = 4</span><br><span class="line">numChildren = 0</span><br><span class="line">[zkshell: 15] get /zk_test</span><br><span class="line">junk</span><br><span class="line">cZxid = 5</span><br><span class="line">ctime = Fri Jun 05 13:57:06 PDT 2009</span><br><span class="line">mZxid = 6</span><br><span class="line">mtime = Fri Jun 05 14:01:52 PDT 2009</span><br><span class="line">pZxid = 5</span><br><span class="line">cversion = 0</span><br><span class="line">dataVersion = 1</span><br><span class="line">aclVersion = 0</span><br><span class="line">ephemeralOwner = 0</span><br><span class="line">dataLength = 4</span><br><span class="line">numChildren = 0</span><br></pre></td></tr></table></figure>
+<p>(Notice we did a get after setting the data and it did, indeed, change.</p>
+<p>Finally, let’s delete the node by issuing:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[zkshell: 16] delete /zk_test</span><br><span class="line">[zkshell: 17] ls /</span><br><span class="line">[zookeeper]</span><br><span class="line">[zkshell: 18]</span><br></pre></td></tr></table></figure>
+<p>如果需要递归删除则可以使用<code>rmr /hbase</code></p>
+<h2 id="Hbase"><a href="#Hbase" class="headerlink" title="Hbase"></a>Hbase</h2><h3 id="配置conf目录下文件"><a href="#配置conf目录下文件" class="headerlink" title="配置conf目录下文件"></a>配置conf目录下文件</h3><h4 id="hbase-env-sh"><a href="#hbase-env-sh" class="headerlink" title="hbase-env.sh"></a>hbase-env.sh</h4><p>配置java环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<p>注释jdk7需要的配置，因为我使用的是jdk8</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">export</span> HBASE_MASTER_OPTS=<span class="string">"<span class="variable">$HBASE_MASTER_OPTS</span> -XX:PermSize=128m -XX:MaxPermSize=128m -XX:ReservedCodeCacheSize=256m"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">export</span> HBASE_REGIONSERVER_OPTS=<span class="string">"<span class="variable">$HBASE_REGIONSERVER_OPTS</span> -XX:PermSize=128m -XX:MaxPermSize=128m -XX:ReservedCodeCacheSize=256m"</span></span></span><br></pre></td></tr></table></figure>
+<p>设置hbase pid文件路径，用于关闭hbase使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HBASE_PID_DIR=/Users/huzekang/opt/hadoop-cdh/data/hbase/tmp/pids</span><br></pre></td></tr></table></figure>
+<p>使用外部zookeeper</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HBASE_MANAGES_ZK=false</span><br></pre></td></tr></table></figure>
+<h4 id="hbase-site-xml"><a href="#hbase-site-xml" class="headerlink" title="hbase-site.xml"></a>hbase-site.xml</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置本地临时目录，缺省值是'/tmp' --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/Users/huzekang/opt/hadoop-cdh/data/hbase/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 指定外部zookeeper连接 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>localhost:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 指定分布式运行 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置hbase目录，让HDFS生成该目录给hbase使用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:8020/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动Hbase"><a href="#启动Hbase" class="headerlink" title="启动Hbase"></a>启动Hbase</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/hbase-1.2.0-cdh5.14.2 » bin/start-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>观察启动进程，其中hmaster和hregionserver就是hbase的。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626145232.png" alt></p>
+<p>打开zookeeper客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/zookeeper-3.4.5-cdh5.14.2 » bin/zkCli.sh -server 127.0.0.1:2181</span><br></pre></td></tr></table></figure>
+<p>观察<code>/</code>目录下多了一个hbase目录</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626144956.png" alt></p>
+<h3 id="关闭hbase"><a href="#关闭hbase" class="headerlink" title="关闭hbase"></a>关闭hbase</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/hbase-1.2.0-cdh5.14.2 » bin/stop-hbase.sh</span><br></pre></td></tr></table></figure>
+<h3 id="启动hbase-thrift"><a href="#启动hbase-thrift" class="headerlink" title="启动hbase thrift"></a>启动hbase thrift</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/hbase-1.2.0-cdh5.14.2 » bin/hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190627100355.png" alt></p>
+<p>该进程可以方便其他语言例如python使用hbase的api。</p>
+<h2 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h2><h3 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h3><p>官方文档：<a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/GettingStarted</a></p>
+<p>hiveserver搭建详解：<a href="http://www.coderli.com/setup-hiveserver-step-details/" target="_blank" rel="noopener">http://www.coderli.com/setup-hiveserver-step-details/</a></p>
+<h3 id="Metadata-Store-postgres安装"><a href="#Metadata-Store-postgres安装" class="headerlink" title="Metadata Store postgres安装"></a>Metadata Store postgres安装</h3><p>Hive有三种元数据存储的模式。</p>
+<ul>
+<li>Embedded mode</li>
+<li>Local mode</li>
+<li>Remote mode</li>
+</ul>
+<p>很多文章里都有介绍，但是很少有人具体解释其区别和原理。</p>
+<p>这里找到一篇介绍，至少对我来说，算是能看懂他所介绍的。 <a href="http://www.cloudera.com/documentation/enterprise/5-2-x/topics/cdh_ig_hive_metastore_configure.html#topic_18_4_1" target="_blank" rel="noopener">Metastore Deployment Modes</a></p>
+<p>这里采用<strong>Remote mode</strong>。因此我们先要部署<strong>postgres</strong>。</p>
+<h3 id="配置Hive"><a href="#配置Hive" class="headerlink" title="配置Hive"></a>配置Hive</h3><p><strong>Hive</strong>在<strong>conf</strong>目录下提供了一个配置文件模版<strong>hive-default.xml.template</strong>供我们修改。如果没，则创建一份。</p>
+<p><strong>Hive</strong>会默认加载<strong>hive-site.xml</strong>配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp conf/hive-default.xml.template conf/hive-site.xml</span><br></pre></td></tr></table></figure>
+<p>同样，按照了解，我们需要配置<strong>metastore</strong>的相关信息，如数据库连接，驱动，用户名，密码等。</p>
+<h4 id="配置hive-site-xml配置文件"><a href="#配置hive-site-xml配置文件" class="headerlink" title="配置hive-site.xml配置文件"></a>配置hive-site.xml配置文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:postgresql://192.168.5.148:5432/hive_metadata<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.postgresql.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>postgres<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>eLN8QGV4g3LINDrFrsDKvCCyHapLOPCR<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://localhost:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">description</span>&gt;</span>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 设置hdfs上保存的数据仓库路径 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.warehouse.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/hive/warehouse<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">description</span>&gt;</span>location of default database for the warehouse<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里，<strong>metastore</strong>服务的默认端口为<strong>9083</strong>。</p>
+<p>由于我们需要连接<strong>pg10</strong>数据库，而<strong>Hive</strong>并没有提供相应的驱动，所以需要下载<strong>Pg  JDBC</strong>驱动，并放在<strong>Hive</strong>的<strong>lib</strong>目录下。直接进入<strong>lib</strong>目录执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.4/postgresql-42.1.4.jar</span><br></pre></td></tr></table></figure>
+<h4 id="初始化元数据的数据库"><a href="#初始化元数据的数据库" class="headerlink" title="初始化元数据的数据库"></a>初始化元数据的数据库</h4><ol>
+<li><p>在pg中创建数据库<code>hive_metadata</code></p>
+</li>
+<li><p>执行hive自带的初始化脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/schematool -dbType postgres -initSchema</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626203349.png" alt></p>
+<h4 id="修改log日志文件位置-option"><a href="#修改log日志文件位置-option" class="headerlink" title="修改log日志文件位置(option)"></a>修改log日志文件位置(option)</h4><p><strong>Hive</strong>默认将日志<strong>存放在/tmp/${user.name}</strong>下。为了方便维护和查看，修改日志文件位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp conf/hive-log4j.properties.template conf/hive-log4j.properties</span><br></pre></td></tr></table></figure>
+<p>修改日志级别和输出日志文件的地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hive.log.dir=/Users/huzekang/opt/hadoop-cdh/hive-1.1.0-cdh5.14.2/logs/hive</span><br><span class="line">hive.root.logger=INFO,DRFA</span><br></pre></td></tr></table></figure>
+<h3 id="启动HiveServer服务"><a href="#启动HiveServer服务" class="headerlink" title="启动HiveServer服务"></a>启动HiveServer服务</h3><p>启动MetaStore Service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hive --service metastore &amp;</span><br></pre></td></tr></table></figure>
+<p>第一次启动会在mysql中创建表，可能速度会慢点。可以通过看日志文件观察是否报错。</p>
+<p>启动HiveServer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hive --service hiveserver2 &amp;</span><br></pre></td></tr></table></figure>
+<p>查看日志一切正常。可以看到多了两个java进程。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623160521.png" alt></p>
+<p>可以打开浏览器网址<a href="http://localhost:10002/hiveserver2.jsp" target="_blank" rel="noopener">http://localhost:10002/hiveserver2.jsp</a>进行访问hiveserver2。</p>
+<p>启动成功后，hive会在hdfs上的tmp目录建立相关文件，但是使用浏览器打开hdfs的tmp目录会发现权限不足无法访问。修改tmp目录权限就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -chmod -R 755 /tmp</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623163014.png" alt></p>
+<h3 id="使用hive客户端测试"><a href="#使用hive客户端测试" class="headerlink" title="使用hive客户端测试"></a>使用hive客户端测试</h3><p>手动创建一个table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> helloword(<span class="keyword">id</span> <span class="built_in">int</span>,<span class="keyword">name</span> <span class="keyword">string</span>) <span class="keyword">ROW</span> <span class="keyword">FORMAT</span> <span class="keyword">DELIMITED</span> <span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">','</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623155043.png" alt></p>
+<p>插入一条数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> helloword <span class="keyword">values</span>(<span class="number">11</span>,<span class="string">'peter'</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623161213.png" alt></p>
+<p>打开hdfs可以观察到数据存放到指定的目录了。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623161342.png" alt></p>
+<h3 id="使用beeline连接"><a href="#使用beeline连接" class="headerlink" title="使用beeline连接"></a>使用beeline连接</h3><h4 id="嵌入模式"><a href="#嵌入模式" class="headerlink" title="嵌入模式"></a>嵌入模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/beeline -u jdbc:hive2://</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623220356.png" alt></p>
+<p>此模式可以查询，也可以插入。</p>
+<h4 id="远程模式"><a href="#远程模式" class="headerlink" title="远程模式"></a>远程模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bin/beeline      </span><br><span class="line"></span><br><span class="line">beeline&gt; !connect jdbc:hive2://localhost:10000</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626172239.png" alt></p>
+<p>此模式下可以正常查询select操作，但是插入操作和创建表都会报错。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190623220827.png" alt></p>
+<p>错误信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Error <span class="keyword">while</span> processing statement: FAILED: Execution Error, <span class="keyword">return</span> code <span class="number">1</span> from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:Got exception: org.apache.hadoop.security.AccessControlException Permission denied: user=anonymous, access=WRITE, inode=<span class="string">"/Users/huzekang/opt/hadoop-cdh/hive-1.1.0-cdh5.14.2/warehouse"</span>:huzekang:supergroup:drwxr-xr-x</span><br></pre></td></tr></table></figure>
+<p>此时只要对错误信息中提到的<strong>hive在hdfs上的warehouse目录</strong>进行change the permission即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -chmod -R 777 /Users/huzekang/</span><br></pre></td></tr></table></figure>
+<h3 id="使用Java代码连接"><a href="#使用Java代码连接" class="headerlink" title="使用Java代码连接"></a>使用Java代码连接</h3><h4 id="引入maven依赖"><a href="#引入maven依赖" class="headerlink" title="引入maven依赖"></a>引入maven依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.hive&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;hive-jdbc&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;0.11.0&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 如果频繁出现下面错误，试试更换hive目录下的lib目录下的mysql驱动</span></span><br><span class="line"><span class="comment"> * Error while compiling statement: FAILED: SemanticException Unable to fetch table hive_table1. Could not retrieve transation read-only status server</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HiveJdbcTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String driverName = <span class="string">"org.apache.hive.jdbc.HiveDriver"</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(driverName);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            System.exit(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 设置hive 的jdbc连接</span></span><br><span class="line">        Connection con = DriverManager.getConnection(<span class="string">"jdbc:hive2://localhost:10000/default"</span>, <span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line">        Statement stmt = con.createStatement();</span><br><span class="line">        String tableName = <span class="string">"hive_table1"</span>;</span><br><span class="line">        stmt.execute(<span class="string">"drop table if exists "</span> + tableName);</span><br><span class="line">        stmt.execute(<span class="string">"create table "</span> + tableName +  <span class="string">" (key int, value string)"</span>);</span><br><span class="line">        System.out.println(<span class="string">"Create table success!"</span>);</span><br><span class="line">        <span class="comment">// show tables</span></span><br><span class="line">        String sql = <span class="string">"show tables '"</span> + tableName + <span class="string">"'"</span>;</span><br><span class="line">        System.out.println(<span class="string">"=======Running: "</span> + sql);</span><br><span class="line">        ResultSet res = stmt.executeQuery(sql);</span><br><span class="line">        <span class="keyword">if</span> (res.next()) &#123;</span><br><span class="line">            System.out.println(res.getString(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// describe table</span></span><br><span class="line">        sql = <span class="string">"describe "</span> + tableName;</span><br><span class="line">        System.out.println(<span class="string">"=======Running: "</span> + sql);</span><br><span class="line">        res = stmt.executeQuery(sql);</span><br><span class="line">        <span class="keyword">while</span> (res.next()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"表字段名："</span>+res.getString(<span class="number">1</span>) + <span class="string">"\t"</span> +<span class="string">"表字段类型："</span>+ res.getString(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        sql = <span class="string">"select * from "</span> + tableName;</span><br><span class="line">        res = stmt.executeQuery(sql);</span><br><span class="line">        <span class="keyword">while</span> (res.next()) &#123;</span><br><span class="line">            System.out.println(res.getInt(<span class="number">1</span>) + <span class="string">"\t"</span> + res.getString(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 插数据到hive_table1</span></span><br><span class="line">        sql = <span class="string">"insert into  "</span> + tableName + <span class="string">" values (22,'xxded')"</span>;</span><br><span class="line">        System.out.println(<span class="string">"=======Running: "</span> + sql);</span><br><span class="line">        stmt.executeUpdate( sql);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// zh</span></span><br><span class="line">        sql = <span class="string">"select count(1) from "</span> + tableName;</span><br><span class="line">        System.out.println(<span class="string">"Running: "</span> + sql);</span><br><span class="line">        res = stmt.executeQuery(sql);</span><br><span class="line">        <span class="keyword">while</span> (res.next()) &#123;</span><br><span class="line">            System.out.println(res.getString(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h2><h3 id="Spark集群启动命令汇总"><a href="#Spark集群启动命令汇总" class="headerlink" title="Spark集群启动命令汇总"></a>Spark集群启动命令汇总</h3><p>1、在主节点启动所有服务（包括slave节点，需要做免密码登录）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+<p>2、单独启动主节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-master.sh</span><br></pre></td></tr></table></figure>
+<p>3、单独启动slave节点</p>
+<p>启动所有的slaves节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-slaves.sh spark://10.130.2.220:7077</span><br></pre></td></tr></table></figure>
+<p>启动单台的slaves节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-slave.sh spark://10.130.2.220:7077</span><br></pre></td></tr></table></figure>
+<p>启动后可以打开浏览器<code>http://localhost:8080/</code>看到spark master。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190627113457.png" alt></p>
+<p>可以观察到起来了一个master和worker进程。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626112610.png" alt></p>
+<h2 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h2><h3 id="服务端安装"><a href="#服务端安装" class="headerlink" title="服务端安装"></a>服务端安装</h3><h4 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h4><h4 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h4><p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190627204309.png" alt></p>
+<ol>
+<li><p><code>etc/config.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">coordinator=true</span><br><span class="line">node-scheduler.include-coordinator=true</span><br><span class="line">http-server.http.port=8082</span><br><span class="line">query.max-memory=5GB</span><br><span class="line">query.max-memory-per-node=1GB</span><br><span class="line">query.max-total-memory-per-node=2GB</span><br><span class="line">discovery-server.enabled=true</span><br><span class="line">discovery.uri=http://localhost:8082</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>etc/jvm.config</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-server</span><br><span class="line">-Xmx16G</span><br><span class="line">-XX:+UseG1GC</span><br><span class="line">-XX:G1HeapRegionSize=<span class="number">32</span>M</span><br><span class="line">-XX:+UseGCOverheadLimit</span><br><span class="line">-XX:+ExplicitGCInvokesConcurrent</span><br><span class="line">-XX:+HeapDumpOnOutOfMemoryError</span><br><span class="line">-XX:+ExitOnOutOfMemoryError</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>etc/node.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node.environment=production</span><br><span class="line">node.id=ffffffff-ffff-ffff-ffff-ffffffffffff</span><br><span class="line">node.data-dir=/Users/huzekang/opt/hadoop-cdh/data/presto</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h4><p>daemon运行：<code>bin/launcher start</code><br>foreground运行：<code>bin/launcher run</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/presto-server-0.221 » bin/launcher run</span><br></pre></td></tr></table></figure>
+<h3 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h3><ol>
+<li><p>下载<a href="https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.196/presto-cli-0.196-executable.jar" target="_blank" rel="noopener">https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.196/presto-cli-0.196-executable.jar</a></p>
+</li>
+<li><p>移动到你喜欢的目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/presto-server-0.221/bin » mv ~/Downloads/presto-cli-0.196-executable.jar ./presto</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋予它执行的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x presto</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="配置连接器"><a href="#配置连接器" class="headerlink" title="配置连接器"></a>配置连接器</h3><h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><p>参考配置<a href="https://prestodb.github.io/docs/current/connector/mysql.html" target="_blank" rel="noopener">https://prestodb.github.io/docs/current/connector/mysql.html</a></p>
+<p>在server的主目录下创建配置文件<code>etc/catalog/mysql.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connector.name=mysql</span><br><span class="line">connection-url=jdbc:mysql://192.168.1.150:3306</span><br><span class="line">connection-user=root</span><br><span class="line">connection-password=root</span><br></pre></td></tr></table></figure>
+<p>重启完server后启动客户端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/presto-server-0.221/bin » ./presto --server localhost:8082 --catalog mysql --schema yiboard</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190627165459.png" alt></p>
+<h4 id="postgres"><a href="#postgres" class="headerlink" title="postgres"></a>postgres</h4><p>参考配置：<a href="https://prestodb.github.io/docs/current/connector/postgresql.html" target="_blank" rel="noopener">https://prestodb.github.io/docs/current/connector/postgresql.html</a></p>
+<p>在server的主目录下创建配置文件<code>etc/catalog/posgresql.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connector.name=postgresql</span><br><span class="line">connection-url=jdbc:postgresql://192.168.1.150:5432/crawl</span><br><span class="line">connection-user=postgres</span><br><span class="line">connection-password=123456</span><br></pre></td></tr></table></figure>
+<p>重启完server后启动客户端。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/presto-server-0.221/bin » ./presto --server localhost:8082 --catalog postgresql --schema public</span><br></pre></td></tr></table></figure>
+<h4 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h4><p>参考配置：<a href="https://prestodb.github.io/docs/current/connector/mongodb.html" target="_blank" rel="noopener">https://prestodb.github.io/docs/current/connector/mongodb.html</a>&gt;</p>
+<p>在server的主目录下创建配置文件<code>etc/catalog/mongodb.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connector.name=mongodb</span><br><span class="line">mongodb.seeds=192.168.1.150:27017</span><br></pre></td></tr></table></figure>
+<p>重启完server后启动客户端。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/presto-server-0.221/bin » ./presto --server localhost:8082 --catalog mongodb --schema yibo</span><br></pre></td></tr></table></figure>
+<h4 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h4><p>参考配置：<a href="https://prestodb.github.io/docs/current/connector/hive.html" target="_blank" rel="noopener">https://prestodb.github.io/docs/current/connector/hive.html</a>&gt;</p>
+<p>在server的主目录下创建配置文件<code>etc/catalog/posgresql.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connector.name=hive-hadoop2</span><br><span class="line">hive.metastore.uri=thrift://localhost:9083</span><br></pre></td></tr></table></figure>
+<p>重启完server后启动客户端。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/presto-server-0.221/bin » ./presto --server localhost:8082 --catalog hive --schema default</span><br></pre></td></tr></table></figure>
+<h3 id="跨源查询"><a href="#跨源查询" class="headerlink" title="跨源查询"></a>跨源查询</h3><p>这里我使用mysql的表和pg的表进行关联查询。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.employee_id,b.id, a.full_name,b.repo_name <span class="keyword">FROM</span> mysql.foodmart.employee a,postgresql.public.github_repo b <span class="keyword">where</span> a.employee_id = b.id;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190628141632.png" alt></p>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><h4 id="下载解压"><a href="#下载解压" class="headerlink" title="下载解压"></a>下载解压</h4><h4 id="配置-2"><a href="#配置-2" class="headerlink" title="配置"></a>配置</h4><p>配置<code>config/server.properties</code>文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">broker.id=1</span><br><span class="line">log.dirs=/Users/huzekang/opt/hadoop-cdh/data/kafka/kafka-logs</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>首先打开zookeeper。</p>
+<p>然后启动kafka server。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/kafka_2.12-2.1.1 » bin/kafka-server-start.sh  config/server.properties</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190627230614.png" alt></p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ol>
+<li><p>启动控制台producer，创建一个test2的topic，输出几个hello</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~/opt/hadoop-cdh/kafka_2.12-2.1.1 »  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test2         </span><br><span class="line"><span class="meta">&gt;</span><span class="bash">hello1</span></span><br><span class="line">[2019-06-27 23:08:54,369] WARN [Producer clientId=console-producer] Error while fetching metadata with correlation id 1 : &#123;test2=LEADER_NOT_AVAILABLE&#125; (org.apache.kafka.clients.NetworkClient)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">hello2</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">hello3</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动控制台consumer，监听test2的topic。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test2 --from-beginning</span><br></pre></td></tr></table></figure>
+<p>可以看到👆上面输入的都显示出来了。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190627231059.png" alt></p>
+</li>
+<li><p><strong>查看有哪些topic</strong></p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190701213535.png" alt></p>
+</li>
+</ol>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/06/19/SmartBi/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2019/06/10/数据库时间类型的范围查询/" class="next-post btn btn-default" title=''>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            </span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CDH5-14-2手动安装"><span class="toc-text">CDH5.14.2手动安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预备环境"><span class="toc-text">预备环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hdfs"><span class="toc-text">Hdfs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考官方文档"><span class="toc-text">参考官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行"><span class="toc-text">运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YARN-on-Single-Node"><span class="toc-text">YARN on Single Node</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-1"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行-1"><span class="toc-text">运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zookeeper"><span class="toc-text">Zookeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Standalone-Operation安装"><span class="toc-text">Standalone Operation安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Managing-ZooKeeper-Storage"><span class="toc-text">Managing ZooKeeper Storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Connecting-to-ZooKeeper"><span class="toc-text">Connecting to ZooKeeper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hbase"><span class="toc-text">Hbase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置conf目录下文件"><span class="toc-text">配置conf目录下文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hbase-env-sh"><span class="toc-text">hbase-env.sh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hbase-site-xml"><span class="toc-text">hbase-site.xml</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动Hbase"><span class="toc-text">启动Hbase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭hbase"><span class="toc-text">关闭hbase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hbase-thrift"><span class="toc-text">启动hbase thrift</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive"><span class="toc-text">Hive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文档："><span class="toc-text">参考文档：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metadata-Store-postgres安装"><span class="toc-text">Metadata Store postgres安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Hive"><span class="toc-text">配置Hive</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置hive-site-xml配置文件"><span class="toc-text">配置hive-site.xml配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化元数据的数据库"><span class="toc-text">初始化元数据的数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改log日志文件位置-option"><span class="toc-text">修改log日志文件位置(option)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动HiveServer服务"><span class="toc-text">启动HiveServer服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用hive客户端测试"><span class="toc-text">使用hive客户端测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用beeline连接"><span class="toc-text">使用beeline连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#嵌入模式"><span class="toc-text">嵌入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程模式"><span class="toc-text">远程模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Java代码连接"><span class="toc-text">使用Java代码连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引入maven依赖"><span class="toc-text">引入maven依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark"><span class="toc-text">Spark</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark集群启动命令汇总"><span class="toc-text">Spark集群启动命令汇总</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Presto"><span class="toc-text">Presto</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端安装"><span class="toc-text">服务端安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-下载"><span class="toc-text">1. 下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-配置"><span class="toc-text">2. 配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-启动"><span class="toc-text">3. 启动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端安装"><span class="toc-text">客户端安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置连接器"><span class="toc-text">配置连接器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql"><span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#postgres"><span class="toc-text">postgres</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongoDB"><span class="toc-text">mongoDB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hive"><span class="toc-text">hive</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨源查询"><span class="toc-text">跨源查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka"><span class="toc-text">Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下载解压"><span class="toc-text">下载解压</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置-2"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>

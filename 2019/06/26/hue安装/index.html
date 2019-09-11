@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="ZKang&#39;s Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content>
+
+
+<meta name="description" content="hue安装由于我的mac无法编译源码安装，所以采用docker方式进行安装。
+使用hue docker容器安装
+在当前目录创建好hue.ini文件
+简化版可以参考https://github.c...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    ZKang&#39;s Home
+</title>
+
+<link rel="alternate" href="/atom.xml" title="ZKang&#39;s Home" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='ZeKang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        ZKang&#39;s Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/06/26</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="hue安装"><a href="#hue安装" class="headerlink" title="hue安装"></a>hue安装</h1><p>由于我的mac无法编译源码安装，所以采用docker方式进行安装。</p>
+<h2 id="使用hue-docker容器安装"><a href="#使用hue-docker容器安装" class="headerlink" title="使用hue docker容器安装"></a>使用hue docker容器安装</h2><ol>
+<li><p>在当前目录创建好<code>hue.ini</code>文件</p>
+<p>简化版可以参考<a href="https://github.com/cloudera/hue/blob/master/tools/docker/hue/conf/hue-overrides.ini" target="_blank" rel="noopener">https://github.com/cloudera/hue/blob/master/tools/docker/hue/conf/hue-overrides.ini</a></p>
+<p>完全版可以参考<a href="https://github.com/cloudera/hue/blob/master/desktop/conf.dist/hue.ini" target="_blank" rel="noopener">https://github.com/cloudera/hue/blob/master/desktop/conf.dist/hue.ini</a></p>
+</li>
+<li><p>在<code>hue.ini</code>文件中配置好数据库</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626222203.png" alt></p>
+</li>
+<li><p>启动命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8889:8888 -v $PWD/hue.ini:/usr/share/hue/desktop/conf/z-hue.ini gethue/hue</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="配置需要hue连接的组件"><a href="#配置需要hue连接的组件" class="headerlink" title="配置需要hue连接的组件"></a>配置需要hue连接的组件</h2><h3 id="hdfs"><a href="#hdfs" class="headerlink" title="hdfs"></a>hdfs</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[hadoop]</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Configuration for HDFS NameNode</span></span><br><span class="line">  <span class="comment"># ------------------------------------------------------------------------</span></span><br><span class="line"><span class="section">   [[hdfs_clusters]]</span></span><br><span class="line">    <span class="comment"># HA support by using HttpFs</span></span><br><span class="line"></span><br><span class="line"><span class="section">    [[[default]]]</span></span><br><span class="line">      <span class="comment"># Enter the filesystem uri</span></span><br><span class="line">       fs_defaultfs=hdfs://192.168.5.37:9000</span><br><span class="line"></span><br><span class="line">      <span class="comment"># Use WebHdfs/HttpFs as the communication mechanism.</span></span><br><span class="line">      <span class="comment"># Domain should be the NameNode or HttpFs host.</span></span><br><span class="line">      <span class="comment"># Default port is 14000 for HttpFs.</span></span><br><span class="line">       webhdfs_url=http://192.168.5.37:50070/webhdfs/v1</span><br></pre></td></tr></table></figure>
+<p>然而配置完重启hue后，点击“File Browser”报错：</p>
+<p><u>Cannot access:/user/admin.”注：您是hue管理员，但不是HDFS超级用户（即“”HDFS“”）</u></p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626224752.png" alt></p>
+<p>解决办法：</p>
+<p>在hadoop的<code>core-site.xml</code>中配置代理用户。</p>
+<p> 我一般配置是如下，在$HADOOP_HOME/etc/hadoop/下的core-site.xml里添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置可以访问hdfs的用户 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hue.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.hue.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>重启完hadoop就可以看到文件了。</p>
+<p>但是如果在没有权限的目录下（如图当前文件夹属于huzekang用户）创建文件夹，则会出现如下错误：</p>
+<p><u>Permission denied: user=admin, access=WRITE, inode=”/user”:huzekang:supergroup:drwxr-xr-x</u></p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626231038.png" alt></p>
+<p>在hadoop的<code>core-site.xml</code>中配置代理用户</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.huzekang.hosts<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.proxyuser.huzekang.groups<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>并在hue中创建huzekang用户，并使用它登录hue则可以在上述目录中创建文件夹了。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626231658.png" alt></p>
+<h3 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[beeswax]</span><br><span class="line"></span><br><span class="line">  # Host where HiveServer2 is running.</span><br><span class="line">  # If Kerberos security is enabled, use fully-qualified domain name (FQDN).</span><br><span class="line">   hive_server_host=192.168.5.37</span><br><span class="line"></span><br><span class="line">  # Port where HiveServer2 Thrift server runs on.</span><br><span class="line">   hive_server_port=10000</span><br></pre></td></tr></table></figure>
+<p>配置好<code>hue.ini</code>文件后重启docker容器即可。</p>
+<p><img src="https://raw.githubusercontent.com/huzekang/picbed/master/20190626232731.png" alt></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2019/06/19/SmartBi/" class="next-post btn btn-default" title=''>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            </span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: ''.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hue安装"><span class="toc-text">hue安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用hue-docker容器安装"><span class="toc-text">使用hue docker容器安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置需要hue连接的组件"><span class="toc-text">配置需要hue连接的组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hdfs"><span class="toc-text">hdfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive"><span class="toc-text">hive</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"superSample":2,"width":600,"height":1000,"position":"bottom","hOffset":0,"vOffset":-500},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>
